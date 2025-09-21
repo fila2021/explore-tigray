@@ -9,6 +9,22 @@ const destinations = [
     type: "historical",
   },
   {
+    name: "Shire",
+    description: "A historic town with rich culture and scenic surroundings.",
+    image: "images/shire.jpg",
+    lat: 14.1167,
+    lng: 38.2833,
+    type: "urban",
+  },
+  {
+    name: "Mekelle",
+    description: "Capital city of Tigray with modern amenities and history.",
+    image: "images/mekelle.jpg",
+    lat: 13.4967,
+    lng: 39.4759,
+    type: "urban",
+  },
+  {
     name: "Gera'alta",
     description: "Stunning rock-hewn churches and mountain views.",
     image: "images/geraalta.jpg",
@@ -31,22 +47,6 @@ const destinations = [
     lat: 14.28,
     lng: 39.47,
     type: "cultural",
-  },
-  {
-    name: "Shire",
-    description: "A historic town with rich culture and scenic surroundings.",
-    image: "images/shire.jpg",
-    lat: 14.1167,
-    lng: 38.2833,
-    type: "urban",
-  },
-  {
-    name: "Mekelle",
-    description: "Capital city of Tigray with modern amenities and history.",
-    image: "images/mekelle.jpg",
-    lat: 13.4967,
-    lng: 39.4759,
-    type: "urban",
   },
 ];
 
