@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background: url("../images/tigray-hero.jpg") no-repeat center center/cover;
+  padding: 100px 20px;
+}
+
+#destinationCards .card {
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#mapContainer {
+  width: 100%;
+}
