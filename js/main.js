@@ -33,6 +33,14 @@ const destinations = [
     type: "cultural",
   },
   {
+    name: "Shire",
+    description: "A historic town with rich culture and scenic surroundings.",
+    image: "images/shire.jpg",
+    lat: 14.1167,
+    lng: 38.2833,
+    type: "urban",
+  },
+  {
     name: "Mekelle",
     description: "Capital city of Tigray with modern amenities and history.",
     image: "images/mekelle.jpg",
