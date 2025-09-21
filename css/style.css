@@ -4,15 +4,7 @@ body {
 
 .hero {
   background: url("../images/tigray-hero.jpg") no-repeat center center/cover;
-  padding: 100px;
-  color: white;
-  text-align: center;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  cursor: pointer;
-  transition: 0.2s;
+  padding: 100px 20px;
 }
 
 #destinationCards .card {
@@ -25,9 +17,15 @@ body {
   transform: scale(1.03);
 }
 
+.destination-link {
+  color: blue;
+  cursor: pointer;
+}
+
 .destination-link:hover {
   text-decoration: underline;
 }
+
 #mapContainer {
   width: 100%;
 }
