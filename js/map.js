@@ -6,6 +6,7 @@ function initMap() {
     zoom: 8,
     center: { lat: 14.3, lng: 39.0 },
   });
+
   updateMapMarkers(destinations);
 }
 
