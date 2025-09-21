@@ -68,3 +68,20 @@ searchInput.addEventListener("input", filterAndDisplay);
 typeFilter.addEventListener("change", filterAndDisplay);
 
 filterAndDisplay();
+const messagesDiv = document.getElementById("messages");
+const userMessageInput = document.getElementById("userMessage");
+const sendBtn = document.getElementById("sendBtn");
+
+sendBtn.addEventListener("click", () => {
+  const msg = userMessageInput.value.trim();
+  if (!msg) return;
+
+  messagesDiv.innerHTML += `<div>You: ${msg}</div>`;
+  userMessageInput.value = "";
+
+  let response =
+    "I can recommend places like: " +
+    destinations.map((d) => d.name).join(", ");
+  messagesDiv.innerHTML += `<div>Bot: ${response}</div>`;
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+});
