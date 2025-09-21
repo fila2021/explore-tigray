@@ -111,76 +111,51 @@ sendBtn.addEventListener("click", () => {
   messagesDiv.appendChild(userMsgDiv);
   userMessageInput.value = "";
 
-  // Bot response
-  let response = destinations.map((d) => d.name).join(", ");
-  const typeMap = {
-    historical: destinations
-      .filter((d) => d.type === "historical")
-      .map((d) => d.name)
-      .join(", "),
-    cultural: destinations
-      .filter((d) => d.type === "cultural")
-      .map((d) => d.name)
-      .join(", "),
-    nature: destinations
-      .filter((d) => d.type === "nature")
-      .map((d) => d.name)
-      .join(", "),
-    urban: destinations
-      .filter((d) => d.type === "urban")
-      .map((d) => d.name)
-      .join(", "),
-  };
+  // Smart Chatbot with clickable suggestions
+sendBtn.addEventListener("click", () => {
+    const msg = userMessageInput.value.trim();
+    if (!msg) return;
 
-  for (let key in typeMap) {
-    if (msg.toLowerCase().includes(key)) {
-      response = `Top ${key} destinations: ${typeMap[key]}`;
+    // Show user's message
+    const userMsgDiv = document.createElement("div");
+    userMsgDiv.textContent = "You: " + msg;
+    messagesDiv.appendChild(userMsgDiv);
+    userMessageInput.value = "";
+
+    // Determine bot response
+    let response = destinations.map(d => d.name).join(", "); // Default: list all destinations
+    let typeMap = {
+        "historical": destinations.filter(d => d.type === "historical").map(d => d.name).join(", "),
+        "cultural": destinations.filter(d => d.type === "cultural").map(d => d.name).join(", "),
+        "nature": destinations.filter(d => d.type === "nature").map(d => d.name).join(", "),
+        "urban": destinations.filter(d => d.type === "urban").map(d => d.name).join(", ")
+    };
+
+    for (let key in typeMap) {
+        if (msg.toLowerCase().includes(key)) {
+            response = `Top ${key} destinations: ${typeMap[key]}`;
+        }
     }
-  }
 
-  destinations.forEach((dest) => {
-    if (msg.toLowerCase().includes(dest.name.toLowerCase())) {
-      response = `${dest.name} is a wonderful place! ${dest.description}`;
-    }
-  });
-
-  const botMsgDiv = document.createElement("div");
-  botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
-  messagesDiv.appendChild(botMsgDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-  // Add click to chatbot links
-  botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      filterByDestination(e.target.dataset.name);
+    // Respond to specific destination names
+    destinations.forEach(dest => {
+        if (msg.toLowerCase().includes(dest.name.toLowerCase())) {
+            response = `${dest.name} is a wonderful place! ${dest.description}`;
+        }
     });
-  });
+
+    // Create bot message div
+    const botMsgDiv = document.createElement("div");
+    botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
+    messagesDiv.appendChild(botMsgDiv);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    // Attach click events to links
+    const links = botMsgDiv.querySelectorAll(".destination-link");
+    links.forEach(link => {
+        link.addEventListener("click", (e) => {
+            const destName = e.target.dataset.name;
+            filterByDestination(destName);
+        });
+    });
 });
-
-// Make links clickable
-function makeClickableLinks(text) {
-  destinations.forEach((dest) => {
-    const regex = new RegExp(`\\b${dest.name}\\b`, "g");
-    text = text.replace(
-      regex,
-      `<span class="destination-link" data-name="${dest.name}">${dest.name}</span>`
-    );
-  });
-  return text;
-}
-
-// Filter by chatbot click
-function filterByDestination(name) {
-  const filtered = destinations.filter((d) => d.name === name);
-  displayDestinations(filtered);
-  updateMapMarkers(filtered);
-
-  const cards = document.querySelectorAll("#destinationCards .card");
-  cards.forEach((card) => {
-    const title = card.querySelector(".card-title").textContent;
-    card.style.border = title === name ? "3px solid #007bff" : "";
-    if (title === name) {
-      card.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  });
-}
