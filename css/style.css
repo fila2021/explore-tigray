@@ -13,6 +13,13 @@ body {
   transition: transform 0.2s;
 }
 
+#destinationCards .card:hover {
+  transform: scale(1.03);
+}
+
+.destination-link:hover {
+  text-decoration: underline;
+}
 #mapContainer {
   width: 100%;
 }
