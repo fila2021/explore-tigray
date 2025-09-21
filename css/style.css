@@ -29,3 +29,9 @@ body {
 #mapContainer {
   width: 100%;
 }
+
+.card-img-top {
+  width: 100%; /* full width of the card */
+  height: 250px; /* set same height for all images */
+  object-fit: cover; /* crop & maintain aspect ratio */
+}
