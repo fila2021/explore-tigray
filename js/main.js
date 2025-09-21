@@ -34,3 +34,15 @@ function displayDestinations() {
 }
 
 displayDestinations();
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  const filtered = destinations.filter((d) =>
+    d.name.toLowerCase().includes(query)
+  );
+  cardContainer.innerHTML = "";
+  filtered.forEach((dest) => {
+    cardContainer.innerHTML += `<div class="col-md-4"><div class="card"><h5>${dest.name}</h5></div></div>`;
+  });
+});
