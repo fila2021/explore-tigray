@@ -58,12 +58,17 @@ const searchInput = document.getElementById("searchInput");
 // Display destinations
 function displayDestinations(list) {
   cardContainer.innerHTML = "";
+  if (list.length === 0) {
+    cardContainer.innerHTML = `<p class="no-results">No destinations found. Try another search or filter.</p>`;
+    if (typeof updateMapMarkers === "function") updateMapMarkers([]);
+    return;
+  }
   list.forEach((dest) => {
     const card = document.createElement("div");
     card.classList.add("col-md-4");
     card.innerHTML = `
       <div class="card">
-        <img src="${dest.image}" class="card-img-top" alt="${dest.name}">
+        <img src="${dest.image}" class="card-img-top" alt="Image of ${dest.name}">
         <div class="card-body">
           <h5 class="card-title">${dest.name}</h5>
           <p class="card-text">${dest.description}</p>
@@ -87,7 +92,7 @@ function filterAndDisplay() {
 
   displayDestinations(filtered);
   if (typeof updateMapMarkers === "function") {
-    updateMapMarkers(filtered); // Only call if map exists
+    updateMapMarkers(filtered);
   }
 }
 
@@ -103,18 +108,22 @@ const messagesDiv = document.getElementById("messages");
 const userMessageInput = document.getElementById("userMessage");
 const sendBtn = document.getElementById("sendBtn");
 
+userMessageInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendBtn.click();
+});
+
 sendBtn.addEventListener("click", () => {
   const msg = userMessageInput.value.trim();
   if (!msg) return;
 
-  // Show user's message
   const userMsgDiv = document.createElement("div");
   userMsgDiv.textContent = "You: " + msg;
   messagesDiv.appendChild(userMsgDiv);
   userMessageInput.value = "";
 
-  // Determine bot response
-  let response = destinations.map((d) => d.name).join(", "); // default: list all destinations
+  let response = destinations.map((d) => d.name).join(", ");
+  let matched = false;
+
   const typeMap = {
     historical: destinations
       .filter((d) => d.type === "historical")
@@ -137,22 +146,27 @@ sendBtn.addEventListener("click", () => {
   for (let key in typeMap) {
     if (msg.toLowerCase().includes(key)) {
       response = `Top ${key} destinations: ${typeMap[key]}`;
+      matched = true;
     }
   }
 
   destinations.forEach((dest) => {
     if (msg.toLowerCase().includes(dest.name.toLowerCase())) {
       response = `${dest.name} is a wonderful place! ${dest.description}`;
+      matched = true;
     }
   });
 
-  // Create bot message div with clickable links
+  if (!matched) {
+    response =
+      "Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.";
+  }
+
   const botMsgDiv = document.createElement("div");
   botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
   messagesDiv.appendChild(botMsgDiv);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-  // Add click events to links
   botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       const destName = e.target.dataset.name;
@@ -186,4 +200,12 @@ function filterByDestination(name) {
     if (title === name)
       card.scrollIntoView({ behavior: "smooth", block: "center" });
   });
+}
+
+// 404 redirect
+if (
+  window.location.pathname !== "/index.html" &&
+  window.location.pathname !== "/"
+) {
+  window.location.href = "/index.html";
 }
