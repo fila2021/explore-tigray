@@ -46,3 +46,25 @@ searchInput.addEventListener("input", () => {
     cardContainer.innerHTML += `<div class="col-md-4"><div class="card"><h5>${dest.name}</h5></div></div>`;
   });
 });
+const typeFilter = document.getElementById("typeFilter");
+
+function filterAndDisplay() {
+  const type = typeFilter.value;
+  const query = searchInput.value.toLowerCase();
+
+  const filtered = destinations.filter(
+    (d) =>
+      (type === "all" || d.type === type) &&
+      d.name.toLowerCase().includes(query)
+  );
+
+  cardContainer.innerHTML = "";
+  filtered.forEach((dest) => {
+    cardContainer.innerHTML += `<div class="col-md-4"><div class="card"><h5>${dest.name}</h5></div></div>`;
+  });
+}
+
+searchInput.addEventListener("input", filterAndDisplay);
+typeFilter.addEventListener("change", filterAndDisplay);
+
+filterAndDisplay();
