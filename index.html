@@ -13,9 +13,9 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Explore Tigray</a>
+        <a class="navbar-brand" href="index.html">Explore Tigray</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -37,22 +37,32 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero text-center text-white">
-      <h1>Discover the Wonders of Tigray</h1>
-      <p>Explore historic sites, natural beauty, and local culture in Tigray</p>
-      <input
-        type="text"
-        id="searchInput"
-        class="form-control w-50 mx-auto"
-        placeholder="Search destinations..."
-      />
+    <header class="hero text-center text-white position-relative">
+      <div class="overlay"></div>
+      <div class="hero-content position-relative">
+        <h1>Discover the Wonders of Tigray</h1>
+        <p>
+          Explore historic sites, natural beauty, and local culture in Tigray
+        </p>
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control w-50 mx-auto"
+          placeholder="Search destinations..."
+          aria-label="Search destinations"
+        />
+      </div>
     </header>
 
     <!-- Destinations -->
     <section id="destinations" class="container my-5">
       <h2 class="text-center mb-4">Top Destinations in Tigray</h2>
       <div class="d-flex justify-content-center mb-4">
-        <select id="typeFilter" class="form-select w-25">
+        <select
+          id="typeFilter"
+          class="form-select w-25"
+          aria-label="Filter destinations"
+        >
           <option value="all">All Types</option>
           <option value="historical">Historical</option>
           <option value="cultural">Cultural</option>
@@ -77,12 +87,14 @@
           id="messages"
           class="mb-3"
           style="height: 200px; overflow-y: auto"
+          aria-live="polite"
         ></div>
         <input
           type="text"
           id="userMessage"
           class="form-control"
           placeholder="Ask a question..."
+          aria-label="Ask a question"
         />
         <button id="sendBtn" class="btn btn-primary mt-2">Send</button>
       </div>
