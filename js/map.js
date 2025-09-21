@@ -6,3 +6,16 @@ function initMap() {
   });
 }
 window.onload = initMap;
+function addMarkers() {
+  destinations.forEach((dest) => {
+    new google.maps.Marker({
+      position: { lat: dest.lat, lng: dest.lng },
+      map,
+      title: dest.name,
+    });
+  });
+}
+window.onload = () => {
+  initMap();
+  addMarkers();
+};
