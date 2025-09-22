@@ -1,8 +1,8 @@
-# 🌍 Explore Tigray – Distinction-ready Interactive Front-End Project
+# 🌍 Explore Tigray – Interactive Front-End Project (Distinction-ready)
 
-**Explore Tigray** is an interactive front-end website that allows users to explore the **historic, cultural, urban, and natural** destinations of the Tigray region in Ethiopia.
+**Explore Tigray** is an interactive front-end website that allows users to explore the **historic, cultural, urban, food, hotel, and trekking** destinations of the Tigray region in Ethiopia.
 
-This project demonstrates **dynamic front-end development** using **HTML, CSS, JavaScript, Bootstrap, and the Google Maps API**, ensuring a responsive and engaging user experience.
+The site is **dynamic, responsive, and interactive**, built with **HTML, CSS, JavaScript, Bootstrap, and Google Maps API**.
 
 ---
 
@@ -10,61 +10,75 @@ This project demonstrates **dynamic front-end development** using **HTML, CSS, J
 
 ### User Goals
 
-- **Discover Tigray**: Learn about Axum, Yeha, Adigrat, Mekelle, Gera’alta, and more.
+- **Discover Tigray**: Learn about Axum, Yeha, Adigrat, Mekelle, Gera’alta, Shire, and more.
 - **Search & Filter**: Quickly find destinations by type or keyword.
-- **Interactive Exploration**: Use maps and chatbot to explore locations dynamically.
+- **Save Favorites**: Create a personalized list of favorite destinations.
+- **Interactive Map**: See locations dynamically updated on Google Maps.
 
 ### Site Owner Goals
 
-- Showcase the beauty of Tigray.
-- Provide a **modern, interactive tourism experience**.
-- Demonstrate **front-end interactivity** for educational and promotional use.
+- Showcase the natural, cultural, and historical beauty of Tigray.
+- Provide a **modern interactive tourism experience**.
+- Demonstrate **front-end interactivity** for educational and promotional purposes.
 
 ---
 
 ## ✨ Features
 
-1. **Hero Section with Background Image & Search Bar** – visually appealing introduction.
-2. **Type Filter Dropdown** – choose between historical, cultural, nature, and urban sites.
-3. **Destination Cards** – responsive grid with images, names, and descriptions.
-4. **Dynamic Google Maps** – markers update based on user filters/search.
-5. **Smart Chatbot** – keyword recognition, clickable suggestions, and helpful responses.
-6. **Accessibility Features** – labels, aria-live updates, high contrast overlay, keyboard support.
-7. **Error Handling** – map loader, error banner if Google Maps fails.
-8. **Responsive Design** – works on desktop, tablet, and mobile.
-9. **404 Redirect** – `404.html` automatically redirects to `index.html`.
+1. **Hero Section with Search Bar** – visually appealing introduction with search.
+2. **Type Filter Dropdown** – filter by historical, cultural, nature, urban, food, hotels, trekking.
+3. **Destination Cards** – grid layout with images, names, and descriptions.
+4. **Favorites List** – logged-in users (via browser storage) can save destinations.
+5. **Dynamic Google Maps** – markers update based on filters/search.
+6. **Error Handling** – loader and error banner if Google Maps fails.
+7. **Responsive Design** – works across desktop, tablet, and mobile.
 
 ---
 
 ## 🗂 Folder Structure
 
-```
 explore-tigray/
 │
 ├─ index.html
+├─ 404.html
+├─ .nojekyll
 ├─ css/
-│   └─ style.css
+│ └─ style.css
 ├─ js/
-│   ├─ main.js
-│   └─ map.js
+│ ├─ main.js
+│ └─ map.js
 ├─ images/
-│   ├─ axum.jpg
-│   ├─ geraalta.jpg
-│   ├─ yeha.jpg
-│   ├─ adigrat.jpg
-│   ├─ shire.jpg
-│   └─ mekelle.jpg
-├─ docs/
-│   ├─ wireframes
-│       ├─ wireframe.png
-│   └─ screenshots/
-│       ├─ hero.png
-│       ├─ destinations.png
-│       ├─ map.png
-│       └─ chat.png
-└─ README.md
-```
+│ ├─ axum.jpg
+│ ├─ axum-hotel.jpg
+│ ├─ axum-restaurant.jpg
+│ ├─ shire.jpg
+│ ├─ shire-hotel.jpg
+│ ├─ shire-restaurant.jpg
+│ ├─ mekelle.jpg
+│ ├─ mekelle-hotel.jpg
+│ ├─ mekelle-restaurant.jpg
+│ ├─ geraalta.jpg
+│ ├─ geraalta-hotel.jpg
+│ ├─ geraalta-restaurant.jpg
+│ ├─ yeha.jpg
+│ ├─ yeha-hotel.jpg
+│ ├─ yeha-restaurant.jpg
+│ ├─ adigrat.jpg
+│ ├─ adigrat-hotel.jpg
+│ ├─ adigrat-restaurant.jpg
+│ └─ trek.jpg
 
+├─ docs/
+│ ├─ wireframes
+│ ├─ wireframe.png
+│ └─ screenshots/
+│ ├─ hero.png
+│ ├─ destinations.png
+│ ├─ map.png
+│ └─ chat.png
+└─ README.md
+
+```
 ---
 
 ## 🎨 Wireframe & Screenshots
@@ -101,7 +115,7 @@ Final screenshots:
 3. Add a **blank** `.nojekyll` file at the repo root.
 4. Push changes to `main` branch.
 5. In GitHub: **Settings → Pages → Source → main / root**.
-6. Wait a few minutes and visit your URL:  
+6. Wait a few minutes and visit your URL:
    `https://<username>.github.io/<repo-name>/`
 7. If 404 occurs, test `https://<username>.github.io/<repo-name>/404.html` → it should auto-redirect to home.
 
@@ -126,13 +140,13 @@ Final screenshots:
 
 ### Bug Log
 
-- **GitHub Pages 404** – Found: GitHub Pages returned 404.  
+- **GitHub Pages 404** – Found: GitHub Pages returned 404.
   Fix: Added `.nojekyll` → resolved.
-- **Map InfoWindow Bug** – Found: marker click error.  
+- **Map InfoWindow Bug** – Found: marker click error.
   Fix: corrected `infoWindow.open(map, marker)` → resolved.
-- **Inline Styles** – Found: chatbot used inline `style`.  
+- **Inline Styles** – Found: chatbot used inline `style`.
   Fix: moved to CSS classes → resolved.
-- **Missing ARIA** – Found: no `aria-live` for chatbot.  
+- **Missing ARIA** – Found: no `aria-live` for chatbot.
   Fix: added `role="log" aria-live="polite"` → resolved.
 
 ---
@@ -199,6 +213,7 @@ For assessment:
 
 ## 🔮 Future Enhancements
 
-- Add **favorites list** for logged-in users.
-- Expand **chatbot intelligence** with AI API(external API, example Chatgpt).
-- Add **new categories**: food, hotels, tracking routes.
+- Add **trekking route planner** (multi-stop map).
+- Add **user login system** with persistent favorites.
+- Expand database with more cities and destinations.
+```
