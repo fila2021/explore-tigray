@@ -64,16 +64,16 @@ const destinations = [
     lat: 14.123,
     lng: 38.725,
     type: "food",
-    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+    
   },
   {
-    name: "Shire Cultural Restaurant",
+    name: "Africa Hotel and Restaurant",
     description: "Local dishes with cultural dance performances.",
     image: "images/shire-restaurant.jpg",
     lat: 14.118,
     lng: 38.285,
     type: "food",
-    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+
   },
   {
     name: "Mekelle Desta Restaurant",
@@ -83,7 +83,7 @@ const destinations = [
     lat: 13.497,
     lng: 39.477,
     type: "food",
-    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+    
   },
   {
     name: "Gera'alta Lodge Restaurant",
@@ -93,7 +93,7 @@ const destinations = [
     lat: 14.419,
     lng: 39.05,
     type: "food",
-    wiki: "https://en.wikipedia.org/wiki/Gheralta",
+    
   },
   {
     name: "Yeha Heritage Restaurant",
@@ -102,7 +102,7 @@ const destinations = [
     lat: 14.122,
     lng: 39.036,
     type: "food",
-    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+   
   },
   {
     name: "Adigrat Family Restaurant",
@@ -111,7 +111,7 @@ const destinations = [
     lat: 14.281,
     lng: 39.472,
     type: "food",
-    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+    
   },
 
   // ---- Hotels ----
@@ -122,16 +122,15 @@ const destinations = [
     lat: 14.125,
     lng: 38.726,
     type: "hotels",
-    wiki: "https://en.wikipedia.org/wiki/Axum",
   },
   {
-    name: "Shire Endaselassie Hotel",
+    name: "Gebar Shire Hotel",
     description: "Popular hotel with cultural ambiance and local hospitality.",
     image: "images/shire-hotel.jpg",
     lat: 14.119,
     lng: 38.284,
     type: "hotels",
-    wiki: "https://en.wikipedia.org/wiki/Shire,_Ethiopia",
+    
   },
   {
     name: "Planet Hotel Mekelle",
@@ -140,7 +139,7 @@ const destinations = [
     lat: 13.498,
     lng: 39.476,
     type: "hotels",
-    wiki: "https://en.wikipedia.org/wiki/Mekelle",
+   
   },
   {
     name: "Gera'alta Lodge",
@@ -149,7 +148,7 @@ const destinations = [
     lat: 14.42,
     lng: 39.049,
     type: "hotels",
-    wiki: "https://en.wikipedia.org/wiki/Gheralta",
+    
   },
   {
     name: "Yeha Hotel",
@@ -158,7 +157,7 @@ const destinations = [
     lat: 14.124,
     lng: 39.034,
     type: "hotels",
-    wiki: "https://en.wikipedia.org/wiki/Yeha",
+    
   },
   {
     name: "Adigrat Tourist Hotel",
@@ -167,8 +166,7 @@ const destinations = [
     lat: 14.282,
     lng: 39.471,
     type: "hotels",
-    wiki: "https://en.wikipedia.org/wiki/Adigrat",
-  },
+
 
   // ---- Trekking ----
   {
@@ -178,7 +176,6 @@ const destinations = [
     lat: 14.41,
     lng: 39.05,
     type: "trekking",
-    wiki: "https://en.wikipedia.org/wiki/Gheralta",
   },
 ];
 
