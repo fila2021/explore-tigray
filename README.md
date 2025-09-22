@@ -292,6 +292,41 @@ The site was tested across multiple devices and screen sizes using Responsive De
 
 ---
 
+## ✅ Validation Testing
+
+### HTML Validation
+
+The HTML code was validated using the [W3C Markup Validation Service](https://validator.w3.org/).
+
+- All pages were tested (`index.html`, `404.html`).
+- No errors were found after fixing trailing slashes on void elements (`<meta>`, `<img>`, `<input>`, `<link>`).
+- Minor warnings (if any) were reviewed and addressed.
+
+**Screenshot:**  
+![HTML Validation](assets/docs/screenshots/html-validation.png)
+
+---
+
+### CSS Validation
+
+The CSS code was validated using the [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+
+- The `style.css` file passed with no errors.
+- No compatibility issues were reported.
+
+**Screenshot:**  
+![CSS Validation](assets/docs/screenshots/css-validation.png)
+
+---
+
+### Accessibility & Best Practices
+
+The project was also tested using **Lighthouse** in Chrome DevTools.
+
+- Scores: **Performance ✅, Accessibility ✅, Best Practices ✅, SEO ✅**.
+
+---
+
 ## 🐛 Known Issue: GitHub Pages 404 Bug
 
 During deployment, the project encountered a **GitHub Pages 404 issue**, even though:
