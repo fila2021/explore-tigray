@@ -7,6 +7,7 @@ const destinations = [
     lat: 14.1212,
     lng: 38.7249,
     type: "historical",
+    wiki: "https://en.wikipedia.org/wiki/Axum",
   },
   {
     name: "Shire",
@@ -15,6 +16,7 @@ const destinations = [
     lat: 14.1167,
     lng: 38.2833,
     type: "urban",
+    wiki: "https://en.wikipedia.org/wiki/Shire,_Ethiopia",
   },
   {
     name: "Mekelle",
@@ -23,6 +25,7 @@ const destinations = [
     lat: 13.4967,
     lng: 39.4759,
     type: "urban",
+    wiki: "https://en.wikipedia.org/wiki/Mekelle",
   },
   {
     name: "Gera'alta",
@@ -31,6 +34,7 @@ const destinations = [
     lat: 14.4171,
     lng: 39.048,
     type: "cultural",
+    wiki: "https://en.wikipedia.org/wiki/Gheralta",
   },
   {
     name: "Yeha",
@@ -39,6 +43,7 @@ const destinations = [
     lat: 14.1218,
     lng: 39.0355,
     type: "historical",
+    wiki: "https://en.wikipedia.org/wiki/Yeha",
   },
   {
     name: "Adigrat",
@@ -47,6 +52,7 @@ const destinations = [
     lat: 14.28,
     lng: 39.47,
     type: "cultural",
+    wiki: "https://en.wikipedia.org/wiki/Adigrat",
   },
 ];
 
