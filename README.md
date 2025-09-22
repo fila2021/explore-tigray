@@ -71,9 +71,6 @@ This project was built as part of the **Interactive Front-End Development Milest
 explore-tigray/
 │
 ├─ index.html
-├─ 404.html
-├─ .nojekyll
-├─ README.md
 │
 ├─ assets/
 │ ├─ css/
@@ -83,38 +80,22 @@ explore-tigray/
 │ │ ├─ main.js
 │ │ └─ map.js
 │ │
-│ └─ images/
-│ ├─ axum.jpg
-│ ├─ axum-hotel.jpg
-│ ├─ axum-restaurant.jpg
-│ ├─ shire.jpg
-│ ├─ shire-hotel.jpg
-│ ├─ shire-restaurant.jpg
-│ ├─ mekelle.jpg
-│ ├─ mekelle-hotel.jpg
-│ ├─ mekelle-restaurant.jpg
-│ ├─ geraalta.jpg
-│ ├─ geraalta-hotel.avif
-│ ├─ yeha.jpg
-│ ├─ yeha-hotel.jpg
-│ ├─ yeha-restaurant.jpg
-│ ├─ adigrat.jpg
-│ ├─ adigrat-hotel.jpg
-│ ├─ adigrat-restaurant.jpg
-│ └─ trek.jpg
-│
-└─ docs/
-├─ wireframes/
+│ ├─ images/
+│ │ ├─ axum.jpg
+│ │ ├─ shire.jpg
+│ │ ├─ mekelle.jpg
+│ │ ├─ geraalta.jpg
+│ │ ├─ yeha.jpg
+│ │ ├─ adigrat.jpg
+│ │ ├─ trek.jpg
+│ │ └─ ... (other hotel/restaurant images)
+│ │
+│ └─ docs/
+│ └─ wireframes/
 │ ├─ wireframe_desktop.png
 │ └─ wireframe_mobile.png
 │
-└─ screenshots/
-├─ hero.png
-├─ destinations.png
-├─ guides.png
-├─ map.png
-├─ favorites.png
-└─ feedback.png
+└─ README.md
 
 ---
 
