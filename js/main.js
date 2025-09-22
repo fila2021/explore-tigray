@@ -145,7 +145,7 @@ const destinations = [
   {
     name: "Gera'alta Lodge",
     description: "Eco-lodge with breathtaking views and trekking options.",
-    image: "images/geraalta-hotel.jpg",
+    image: "images/geraalta-hotel.avif",
     lat: 14.42,
     lng: 39.049,
     type: "hotels",
