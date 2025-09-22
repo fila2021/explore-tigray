@@ -80,10 +80,7 @@ function displayDestinations(list) {
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${dest.name}</h5>
           <p class="card-text">${dest.description}</p>
-          <div class="mt-auto d-flex justify-content-between align-items-center">
-            <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">Learn More</a>
-            <button class="btn btn-sm btn-outline-secondary show-dest-btn" data-name="${dest.name}">Show on site</button>
-          </div>
+          <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-auto">Learn More</a>
         </div>
       </div>
     `;
@@ -120,7 +117,6 @@ const messagesDiv = document.getElementById("messages");
 const userMessageInput = document.getElementById("userMessage");
 const sendBtn = document.getElementById("sendBtn");
 
-// Normalize string (for better matching)
 function normalizeString(s) {
   return s
     .toLowerCase()
@@ -130,14 +126,12 @@ function normalizeString(s) {
     .trim();
 }
 
-// Escape regex special chars
 function escapeRegExp(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-// Replace destination names with clickable spans
 function makeClickableLinks(text) {
-  if (/<a\s/i.test(text)) return text; // don’t overwrite anchor tags
+  if (/<a\s/i.test(text)) return text;
   destinations.forEach((dest) => {
     const nameEsc = escapeRegExp(dest.name);
     const regex = new RegExp(`\\b${nameEsc}\\b`, "gi");
@@ -149,17 +143,14 @@ function makeClickableLinks(text) {
   return text;
 }
 
-// Handle Enter key
 userMessageInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") sendBtn.click();
 });
 
-// Chat send button
 sendBtn.addEventListener("click", () => {
   const msg = userMessageInput.value.trim();
   if (!msg) return;
 
-  // Show user's message
   const userMsgDiv = document.createElement("div");
   userMsgDiv.className = "user-message";
   userMsgDiv.textContent = "You: " + msg;
@@ -192,8 +183,6 @@ sendBtn.addEventListener("click", () => {
           <strong>${dest.name}</strong> — ${dest.description}
           <div class="mt-2">
             <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="wiki-link">Read more on Wikipedia</a>
-            &nbsp;
-            <button class="btn btn-sm btn-outline-primary show-dest-btn" data-name="${dest.name}">Show on site</button>
           </div>
         `;
         matched = true;
@@ -202,13 +191,11 @@ sendBtn.addEventListener("click", () => {
     }
   }
 
-  // Fallback
   if (!matched) {
     response =
       "Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.";
   }
 
-  // Bot message
   const botMsgDiv = document.createElement("div");
   botMsgDiv.className = "bot-message";
   if (!/<a\s/i.test(response)) {
@@ -219,21 +206,13 @@ sendBtn.addEventListener("click", () => {
   messagesDiv.appendChild(botMsgDiv);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-  // Add click listeners (delegate for dynamic content)
   botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       filterByDestination(e.target.dataset.name);
     });
   });
-
-  botMsgDiv.querySelectorAll(".show-dest-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      filterByDestination(e.target.dataset.name);
-    });
-  });
 });
 
-// Filter by chatbot click
 function filterByDestination(name) {
   const filtered = destinations.filter((d) => d.name === name);
   displayDestinations(filtered);
@@ -247,5 +226,3 @@ function filterByDestination(name) {
       card.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 }
-
-// 404 handling removed from JS to avoid unexpected redirects on hosting platforms.
