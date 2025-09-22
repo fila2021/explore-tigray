@@ -167,6 +167,28 @@ const searchInput = document.getElementById("searchInput");
 const noResultsEl = document.getElementById("noResults");
 const favContainer = document.getElementById("favoritesList");
 
+// ---------------- Helper: Category Button Class ----------------
+function getCategoryButtonClass(type) {
+  switch (type) {
+    case "historical":
+      return "btn-historical";
+    case "cultural":
+      return "btn-cultural";
+    case "nature":
+      return "btn-nature";
+    case "urban":
+      return "btn-urban";
+    case "food":
+      return "btn-food";
+    case "hotels":
+      return "btn-hotels";
+    case "trekking":
+      return "btn-trekking";
+    default:
+      return "btn-primary";
+  }
+}
+
 // ---------------- Display Destinations ----------------
 function displayDestinations(list) {
   cardContainer.innerHTML = "";
@@ -177,6 +199,7 @@ function displayDestinations(list) {
   noResultsEl.classList.add("visually-hidden");
 
   list.forEach((dest) => {
+    const btnClass = getCategoryButtonClass(dest.type);
     const card = document.createElement("div");
     card.classList.add("col-md-4");
     card.innerHTML = `
@@ -187,10 +210,10 @@ function displayDestinations(list) {
           <p class="card-text">${dest.description}</p>
           ${
             dest.wiki
-              ? `<a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mb-2">Learn More</a>`
+              ? `<a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn ${btnClass} mb-2">Learn More</a>`
               : ""
           }
-          <button class="btn btn-outline-success mt-auto add-fav-btn" data-name="${
+          <button class="btn add-fav-btn mt-auto" data-name="${
             dest.name
           }">Add to Favorites</button>
         </div>
@@ -199,7 +222,6 @@ function displayDestinations(list) {
     cardContainer.appendChild(card);
   });
 
-  // Attach event listeners for favorites
   document.querySelectorAll(".add-fav-btn").forEach((btn) => {
     btn.addEventListener("click", () => addToFavorites(btn.dataset.name));
   });
@@ -249,6 +271,7 @@ function renderFavorites() {
     const dest = destinations.find((d) => d.name === name);
     if (!dest) return;
 
+    const btnClass = getCategoryButtonClass(dest.type);
     favContainer.innerHTML += `
       <div class="col-md-4">
         <div class="card h-100 border-success">
@@ -258,7 +281,7 @@ function renderFavorites() {
             <p class="card-text">${dest.description}</p>
             ${
               dest.wiki
-                ? `<a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Learn More</a>`
+                ? `<a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn ${btnClass}">Learn More</a>`
                 : ""
             }
           </div>
