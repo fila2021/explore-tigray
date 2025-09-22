@@ -64,7 +64,6 @@ const destinations = [
     lat: 14.123,
     lng: 38.725,
     type: "food",
-    
   },
   {
     name: "Africa Hotel and Restaurant",
@@ -73,7 +72,6 @@ const destinations = [
     lat: 14.118,
     lng: 38.285,
     type: "food",
-
   },
   {
     name: "Mekelle Desta Restaurant",
@@ -83,7 +81,6 @@ const destinations = [
     lat: 13.497,
     lng: 39.477,
     type: "food",
-    
   },
   {
     name: "Gera'alta Lodge Restaurant",
@@ -93,7 +90,6 @@ const destinations = [
     lat: 14.419,
     lng: 39.05,
     type: "food",
-    
   },
   {
     name: "Yeha Heritage Restaurant",
@@ -102,7 +98,6 @@ const destinations = [
     lat: 14.122,
     lng: 39.036,
     type: "food",
-   
   },
   {
     name: "Adigrat Family Restaurant",
@@ -111,7 +106,6 @@ const destinations = [
     lat: 14.281,
     lng: 39.472,
     type: "food",
-    
   },
 
   // ---- Hotels ----
@@ -130,7 +124,6 @@ const destinations = [
     lat: 14.119,
     lng: 38.284,
     type: "hotels",
-    
   },
   {
     name: "Planet Hotel Mekelle",
@@ -139,7 +132,6 @@ const destinations = [
     lat: 13.498,
     lng: 39.476,
     type: "hotels",
-   
   },
   {
     name: "Gera'alta Lodge",
@@ -148,7 +140,6 @@ const destinations = [
     lat: 14.42,
     lng: 39.049,
     type: "hotels",
-    
   },
   {
     name: "Yeha Hotel",
@@ -157,7 +148,6 @@ const destinations = [
     lat: 14.124,
     lng: 39.034,
     type: "hotels",
-    
   },
   {
     name: "Adigrat Tourist Hotel",
@@ -166,7 +156,7 @@ const destinations = [
     lat: 14.282,
     lng: 39.471,
     type: "hotels",
-
+  },
 
   // ---- Trekking ----
   {
@@ -204,8 +194,14 @@ function displayDestinations(list) {
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${dest.name}</h5>
           <p class="card-text">${dest.description}</p>
-          <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mb-2">Learn More</a>
-          <button class="btn btn-outline-success mt-auto add-fav-btn" data-name="${dest.name}">Add to Favorites</button>
+          ${
+            dest.wiki
+              ? `<a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mb-2">Learn More</a>`
+              : ""
+          }
+          <button class="btn btn-outline-success mt-auto add-fav-btn" data-name="${
+            dest.name
+          }">Add to Favorites</button>
         </div>
       </div>
     `;
@@ -269,7 +265,11 @@ function renderFavorites() {
           <div class="card-body">
             <h5 class="card-title">${dest.name}</h5>
             <p class="card-text">${dest.description}</p>
-            <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Learn More</a>
+            ${
+              dest.wiki
+                ? `<a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Learn More</a>`
+                : ""
+            }
           </div>
         </div>
       </div>
