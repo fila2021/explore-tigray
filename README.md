@@ -1,37 +1,68 @@
-# 🌍 Explore Tigray – Interactive Front-End Project (Distinction-ready)
+# 🌍 Explore Tigray – Interactive Front-End Project
 
-**Explore Tigray** is an interactive front-end website that allows users to explore the **historic, cultural, urban, food, hotel, and trekking** destinations of the Tigray region in Ethiopia.
+## 📖 Project Overview
 
-The site is **dynamic, responsive, and interactive**, built with **HTML, CSS, JavaScript, Bootstrap, and Google Maps API**.
+**Explore Tigray** is an interactive tourism website showcasing the **historic, cultural, urban, and natural** destinations of the Tigray region in Ethiopia.  
+It allows users to **search, filter, save favorites, and explore destinations on a dynamic Google Map**, while also offering links to trusted tour companies.
+
+This project was built as part of the **Interactive Front-End Development Milestone Project**.
 
 ---
 
-## 🎯 User Goals & Value
+## 🎯 User Stories
 
-### User Goals
+### External User Goals
 
-- **Discover Tigray**: Learn about Axum, Yeha, Adigrat, Mekelle, Gera’alta, Shire, and more.
-- **Search & Filter**: Quickly find destinations by type or keyword.
-- **Save Favorites**: Create a personalized list of favorite destinations.
-- **Interactive Map**: See locations dynamically updated on Google Maps.
+- As a user, I want to **search destinations quickly** so I can find specific places.
+- As a user, I want to **filter destinations by category** (historical, cultural, food, hotels, trekking).
+- As a user, I want to **view destinations on a map** so I can understand their location.
+- As a user, I want to **save favorites** so I can keep track of places I want to visit.
+- As a user, I want to **get in touch via a feedback form** to ask questions or request information.
 
 ### Site Owner Goals
 
-- Showcase the natural, cultural, and historical beauty of Tigray.
-- Provide a **modern interactive tourism experience**.
-- Demonstrate **front-end interactivity** for educational and promotional purposes.
+- Promote the **beauty of Tigray** and encourage tourism.
+- Provide a **modern, interactive user experience**.
+- Offer **useful resources** like tour company links to support planning trips.
+- Showcase **front-end development skills** for assessment and portfolio.
 
 ---
 
 ## ✨ Features
 
-1. **Hero Section with Search Bar** – visually appealing introduction with search.
-2. **Type Filter Dropdown** – filter by historical, cultural, nature, urban, food, hotels, trekking.
-3. **Destination Cards** – grid layout with images, names, and descriptions.
-4. **Favorites List** – logged-in users (via browser storage) can save destinations.
-5. **Dynamic Google Maps** – markers update based on filters/search.
-6. **Error Handling** – loader and error banner if Google Maps fails.
-7. **Responsive Design** – works across desktop, tablet, and mobile.
+### 1. Hero Section
+
+- Background image of Tigray.
+- Title, descriptive text, and search bar.
+
+### 2. Destinations Section
+
+- Search box + category dropdown.
+- Responsive destination cards with images, descriptions, and "Add to Favorites".
+
+### 3. Tour Companies Section
+
+- Cards linking to **trusted Ethiopian tour operators**.
+
+### 4. Map of Tigray
+
+- Dynamic **Google Maps integration**.
+- Markers update with search/filter selections.
+
+### 5. Favorites Section
+
+- Users can add/remove favorites.
+- Stored in **localStorage** for persistence.
+
+### 6. Feedback Form
+
+- Contact form for questions/feedback.
+- Submits to **Code Institute Formdump** for testing.
+- Validation for required fields.
+
+### 7. Responsive Design
+
+- Layout adapts seamlessly to **desktop, tablet, and mobile**.
 
 ---
 
@@ -42,60 +73,172 @@ explore-tigray/
 ├─ index.html
 ├─ 404.html
 ├─ .nojekyll
-├─ css/
-│ └─ style.css
-├─ js/
-│ ├─ main.js
-│ └─ map.js
-├─ images/
-│ ├─ axum.jpg
-│ ├─ axum-hotel.jpg
-│ ├─ axum-restaurant.jpg
-│ ├─ shire.jpg
-│ ├─ shire-hotel.jpg
-│ ├─ shire-restaurant.jpg
-│ ├─ mekelle.jpg
-│ ├─ mekelle-hotel.jpg
-│ ├─ mekelle-restaurant.jpg
-│ ├─ geraalta.jpg
-│ ├─ geraalta-hotel.avif
-│ ├─ yeha.jpg
-│ ├─ yeha-hotel.jpg
-│ ├─ yeha-restaurant.jpg
-│ ├─ adigrat.jpg
-│ ├─ adigrat-hotel.jpg
-│ ├─ adigrat-restaurant.jpg
-│ └─ trek.jpg
-
-├─ docs/
-│ ├─ wireframes
-│ ├─ wireframe.png
-│ └─ screenshots/
-│ ├─ hero.png
-│ ├─ destinations.png
-│ ├─ map.png
-│ └─ chat.png
-└─ README.md
+├─ README.md
+│
+├─ assets/
+│ ├─ css/
+│ │ └─ style.css
+│ │
+│ ├─ js/
+│ │ ├─ main.js
+│ │ └─ map.js
+│ │
+│ ├─ images/
+│ │ ├─ axum.jpg
+│ │ ├─ axum-hotel.jpg
+│ │ ├─ axum-restaurant.jpg
+│ │ ├─ shire.jpg
+│ │ ├─ shire-hotel.jpg
+│ │ ├─ shire-restaurant.jpg
+│ │ ├─ mekelle.jpg
+│ │ ├─ mekelle-hotel.jpg
+│ │ ├─ mekelle-restaurant.jpg
+│ │ ├─ geraalta.jpg
+│ │ ├─ geraalta-hotel.avif
+│ │ ├─ yeha.jpg
+│ │ ├─ yeha-hotel.jpg
+│ │ ├─ yeha-restaurant.jpg
+│ │ ├─ adigrat.jpg
+│ │ ├─ adigrat-hotel.jpg
+│ │ ├─ adigrat-restaurant.jpg
+│ │ └─ trek.jpg
+│
+└─ docs/
+├─ wireframes/
+│ ├─ wireframe_desktop.png
+│ └─ wireframe_mobile.png
+│
+└─ screenshots/
+├─ hero.png
+├─ destinations.png
+├─ guides.png
+├─ map.png
+├─ favorites.png
+└─ feedback.png
 
 ```
 ---
 
-## 🎨 Wireframe & Screenshots
+## 🎨 Wireframes
 
-Wireframe used for planning layout:
+The following wireframes were created during the planning stage:
 
-![Wireframe](docs/wireframes/wireframe.png)
+-----------------------------------------------------
+| Navbar: Explore Tigray | Destinations | Guides | Map |
+|                        | Favorites    | Feedback     |
+-----------------------------------------------------
 
-Final screenshots:
+-----------------------------------------------------
+| HERO: Background Image of Tigray                  |
+| ------------------------------------------------- |
+|  Discover the Wonders of Tigray                  |
+|  Lead paragraph about rock churches, landscapes   |
+|  [ Search Box ]                                   |
+-----------------------------------------------------
 
-| Feature            | Screenshot                                  |
-| ------------------ | ------------------------------------------- |
-| Hero Section       | ![Hero](docs/screenshots/hero.png)          |
-| Destinations Cards | ![Cards](docs/screenshots/destinations.png) |
-| Google Map         | ![Map](docs/screenshots/map.png)            |
-| Chatbot Support    | ![Chat](docs/screenshots/chat.png)          |
+-----------------------------------------------------
+| SECTION: Top Destinations                        |
+| ------------------------------------------------- |
+| [Filter Dropdown: All, Historical, Food, etc.]    |
+|                                                   |
+| [Card] [Card] [Card]                              |
+| [Card] [Card] [Card]                              |
+-----------------------------------------------------
+
+-----------------------------------------------------
+| SECTION: Trusted Tour Companies                   |
+| ------------------------------------------------- |
+| [Card - Brilliant Ethiopia] [Card - ETT] [Card - Inside ET] |
+-----------------------------------------------------
+
+-----------------------------------------------------
+| SECTION: Map of Tigray                            |
+| ------------------------------------------------- |
+| [Google Map Embedded with Markers]                |
+-----------------------------------------------------
+
+-----------------------------------------------------
+| SECTION: My Favorites                             |
+| ------------------------------------------------- |
+| [Favorite Card] [Favorite Card] [Favorite Card]    |
+-----------------------------------------------------
+
+-----------------------------------------------------
+| SECTION: Feedback Form                            |
+| ------------------------------------------------- |
+| Name: [________]   Email: [________]              |
+| Message: [___________________________]            |
+| [Send Feedback Button]                            |
+-----------------------------------------------------
+
+-----------------------------------------------------
+| FOOTER: © 2025 Explore Tigray                     |
+-----------------------------------------------------
+
+![Wireframe](assets/docs/wireframes/wireframe.png)
 
 ---
+
+## 🖼️ Screenshots (Final Design)
+
+| Feature            | Screenshot |
+| ------------------ | ---------- |
+| Hero Section       | ![Hero Screenshot](assets/docs/screenshots/hero.png) |
+| Destinations       | ![Destinations Screenshot](assets/docs/screenshots/destinations.png) |
+| Tour Companies     | ![Guides Screenshot](assets/docs/screenshots/guides.png) |
+| Map of Tigray      | ![Map Screenshot](assets/docs/screenshots/map.png) |
+| Favorites          | ![Favorites Screenshot](assets/docs/screenshots/favorites.png) |
+| Feedback Form      | ![Feedback Screenshot](assets/docs/screenshots/feedback.png) |
+
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5** – semantic structure
+- **CSS3** – custom styles
+- **Bootstrap 5** – responsive grid and layout
+- **JavaScript (ES6)** – interactivity (search, filters, favorites, map)
+- **Google Maps API** – dynamic mapping and markers
+- **GitHub Pages** – project deployment
+
+---
+
+## ✅ Testing
+
+### HTML Validation
+- Checked with **W3C Validator** – no major errors.
+
+### CSS Validation
+- Passed **W3C Jigsaw Validator**.
+
+### JavaScript
+- Checked with **ESLint** – no major issues.
+
+### Responsiveness
+- Tested using Chrome DevTools on **mobile, tablet, and desktop breakpoints**.
+- Works well across devices.
+
+### Performance
+- Tested with **Lighthouse**:
+  - Performance: 95+
+  - Accessibility: 100
+  - Best Practices: 100
+  - SEO: 100
+
+### Manual Testing
+ Feature         | Test                                 | Result                         |
+| --------------- | ------------------------------------ | ----------------------------- |
+| Navbar          | Click links                          | ✅ Scrolls to correct section |
+| Search Bar      | Search "Axum"                        | ✅ Shows Axum only            |
+| Filter Dropdown | Select "Historical"                  | ✅ Shows Axum & Yeha          |
+| Filter Dropdown | Select “Food”                        | ✅ Shows restaurants          |
+| Favorites       | Add/Remove destination               | ✅ Stored in localStorage     |
+| No Results      | Search nonsense                      | ✅ “No destinations found.”   |
+| Map             | Updates markers after filtering      | ✅ Works                      |
+| Feedback Form   | Empty fields validation              | ✅ Error shown                |
+| Feedback Form   | Valid submission →confirmation       | ✅ Works                      |
+---
+
 
 ## 💡 UX Rationale
 
@@ -120,22 +263,14 @@ Final screenshots:
 
 ---
 
-## 🧪 Testing
+## ♿ Accessibility
 
-### Manual Test Table
+- All images include **alt text**.
+- Sufficient **color contrast**.
+- Keyboard accessible navigation.
+- Form elements have **labels**.
 
-| Feature         | Test                                 | Result                        |
-| --------------- | ------------------------------------ | ----------------------------- |
-| Navbar          | Click links                          | ✅ Scrolls to correct section |
-| Search Bar      | Search "Axum"                        | ✅ Shows Axum only            |
-| Filter Dropdown | Select "Historical"                  | ✅ Shows Axum & Yeha          |
-| Combined Filter | Search "Adigrat" + Filter "Cultural" | ✅ Works correctly            |
-| Chatbot         | Ask "Tell me about Axum"             | ✅ Returns summary + button   |
-| Enter Key       | Press Enter in chatbot               | ✅ Sends message              |
-| Map Markers     | Click marker                         | ✅ Info window appears        |
-| Map Failure     | Use invalid API key                  | ✅ Shows error banner         |
-| No Results      | Search nonsense                      | ✅ “No destinations found.”   |
-| 404 Redirect    | Navigate to `/random`                | ✅ Redirects to index.html    |
+---
 
 ### Bug Log
 
@@ -150,29 +285,13 @@ Final screenshots:
 
 ---
 
-## ✅ Validation & Linting
-
-- **HTML** – Passed W3C validation.
-- **CSS** – Passed Jigsaw validation.
-- **JavaScript** – Passed ESLint (no errors).
-
----
-
-## ♿ Accessibility
-
-- **Labels** for all form inputs.
-- **ARIA live regions** for chatbot and map loader.
-- **Color contrast overlay** in hero for readability.
-- **Keyboard support** (Enter key sends messages).
-
----
-
 ## 🔗 Attribution
 
-- Bootstrap 5 – [https://getbootstrap.com](https://getbootstrap.com)
-- Google Maps API – [https://developers.google.com/maps](https://developers.google.com/maps)
-- Images – placeholders / educational use.
-- All other code authored by project owner.
+- **Bootstrap 5**: [https://getbootstrap.com](https://getbootstrap.com)
+- **Google Maps API**: [https://developers.google.com/maps](https://developers.google.com/maps)
+- **Images**: Educational placeholders (replace with licensed if published).
+- **Form Handling**: [Code Institute Formdump](https://formdump.codeinstitute.net/)
+- All other code written by the developer.
 
 ---
 
@@ -212,7 +331,11 @@ For assessment:
 
 ## 🔮 Future Enhancements
 
-- Add **trekking route planner** (multi-stop map).
-- Add **user login system** with persistent favorites.
-- Expand database with more cities and destinations.
+- User **authentication** for personalized favorites.
+- Expand with **AI-powered chatbot** for travel guidance.
+- Add more **categories** (e.g., trekking routes, events).
+- Integration with a **real backend** for saving feedback.
+
+---
+
 ```
