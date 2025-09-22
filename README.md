@@ -309,7 +309,7 @@ This appears to be a **GitHub Pages bug**, not an issue with the project code or
 For assessment:
 
 - Please clone the repo locally and open `index.html` in a browser.
-- All features (search, filter, map, chatbot) work as expected.
+- All features (search, filter, map) work as expected.
 
 ---
 
