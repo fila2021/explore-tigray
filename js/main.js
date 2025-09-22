@@ -154,8 +154,8 @@ sendBtn.addEventListener("click", () => {
 
   destinations.forEach((dest) => {
     if (msg.toLowerCase().includes(dest.name.toLowerCase())) {
-      response = `${dest.name} is a wonderful place! ${dest.description}`;
-      matched = true;
+      response = `${dest.name} is a wonderful place! ${dest.description} 
+    <a href="${dest.wiki}" target="_blank" class="wiki-link">Read more on Wikipedia</a>`;
     }
   });
 
