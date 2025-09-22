@@ -176,6 +176,7 @@ The following wireframes were created during the planning stage:
 -----------------------------------------------------
 
 ![Wireframe](assets/docs/wireframes/wireframe.png)
+![Wireframe](assets/docs/wireframes/wireframe_updated.png)
 
 ---
 
