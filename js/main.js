@@ -91,7 +91,7 @@ const destinations = [
     type: "food",
   },
   {
-    name: "Adigrat Family Restaurant",
+    name: "Geza Gerlase Restaurant",
     description: "Cozy local eatery serving injera with tsebhi and shiro.",
     image: "images/adigrat-restaurant.jpg",
     lat: 14.281,
