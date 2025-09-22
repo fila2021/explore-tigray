@@ -1,11 +1,26 @@
+/* -------------------
+   Global Styles
+------------------- */
 body {
   font-family: Arial, sans-serif;
   padding-top: 56px; /* for fixed navbar */
 }
 
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* -------------------
+   Hero Section
+------------------- */
 .hero {
   background: url("../images/tigray-hero.avif") no-repeat center center/cover;
-  padding: 120px 20px; /* enough space for content */
+  padding: 120px 20px;
   position: relative;
   color: #fff;
   text-align: center;
@@ -17,20 +32,14 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* dark layer for text contrast */
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .hero .hero-content {
   position: relative;
-  z-index: 2; /* ensures content sits above overlay */
+  z-index: 2;
 }
 
-.hero input {
-  margin-top: 20px;
-  max-width: 500px;
-}
-
-/* Hero text enhancements */
 .hero h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -50,106 +59,14 @@ body {
   margin: 0 auto;
 }
 
-#destinationCards .card {
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-#destinationCards .card:hover {
-  transform: scale(1.03);
-}
-
-.destination-link {
-  color: blue;
-  cursor: pointer;
-}
-
-.destination-link:hover {
-  text-decoration: underline;
-}
-
-#mapContainer {
-  width: 100%;
-}
-
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-.no-results {
-  text-align: center;
-  font-style: italic;
+.hero input {
   margin-top: 20px;
-  color: #555;
+  max-width: 500px;
 }
 
-.wiki-link {
-  color: #0d6efd;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.wiki-link:hover {
-  text-decoration: underline;
-}
-
-/* Map loader */
-.map-loader {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 8px 12px;
-  border-radius: 6px;
-  z-index: 10;
-}
-
-.map-error {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 230, 230, 0.98);
-  padding: 8px 12px;
-  border-radius: 6px;
-  z-index: 10;
-  color: #b00020;
-  border: 1px solid #e0a0a0;
-}
-
-/* Small utility to hide content for screen readers while keeping accessible */
-.visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
-}
-
-/* Chat message styles */
-#messages div {
-  margin-bottom: 0.5rem;
-}
-
-.bot-message {
-  background: #f1f1f1;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.user-message {
-  text-align: right;
-  font-weight: 600;
-}
-
-.show-dest-btn {
-  margin-left: 6px;
-}
-/* Consistent card design for destinations, favorites, and tour companies */
+/* -------------------
+   Cards
+------------------- */
 .card {
   border-radius: 1rem;
   overflow: hidden;
@@ -187,19 +104,11 @@ body {
   margin-bottom: 1rem;
 }
 
-.card .btn {
-  border-radius: 50px;
-  font-size: 0.9rem;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.card .btn:hover {
-  opacity: 0.9;
-}
-/* General button styling */
+/* -------------------
+   Buttons
+------------------- */
 .btn {
-  border-radius: 50px; /* pill shape */
+  border-radius: 50px;
   padding: 0.5rem 1.2rem;
   font-size: 0.95rem;
   font-weight: 500;
@@ -207,55 +116,124 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Primary button */
-.btn-primary {
-  background: linear-gradient(135deg, #007bff, #0056d2);
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.95;
+}
+
+/* Category-themed buttons */
+.btn-historical {
+  background: linear-gradient(135deg, #8d6e63, #5d4037);
   border: none;
   color: #fff;
 }
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #0056d2, #0041a8);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.btn-historical:hover {
+  background: linear-gradient(135deg, #5d4037, #3e2723);
 }
 
-/* Outline style */
-.btn-outline-primary,
-.btn-outline-success {
-  border-width: 2px;
-  font-weight: 500;
-}
-
-/* Success button */
-.btn-success {
-  background: linear-gradient(135deg, #28a745, #1e7e34);
+.btn-cultural {
+  background: linear-gradient(135deg, #ff9800, #ef6c00);
   border: none;
   color: #fff;
 }
-
-.btn-success:hover {
-  background: linear-gradient(135deg, #1e7e34, #155d27);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.btn-cultural:hover {
+  background: linear-gradient(135deg, #ef6c00, #e65100);
 }
 
-/* Outline buttons hover effect */
-.btn-outline-primary:hover,
-.btn-outline-success:hover {
+.btn-nature {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  border: none;
   color: #fff;
-  transform: translateY(-2px);
+}
+.btn-nature:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
 }
 
-/* Add-favorite button specific style */
+.btn-urban {
+  background: linear-gradient(135deg, #03a9f4, #0288d1);
+  border: none;
+  color: #fff;
+}
+.btn-urban:hover {
+  background: linear-gradient(135deg, #0288d1, #01579b);
+}
+
+.btn-food {
+  background: linear-gradient(135deg, #e53935, #b71c1c);
+  border: none;
+  color: #fff;
+}
+.btn-food:hover {
+  background: linear-gradient(135deg, #b71c1c, #7f0000);
+}
+
+.btn-hotels {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+  border: none;
+  color: #fff;
+}
+.btn-hotels:hover {
+  background: linear-gradient(135deg, #6a1b9a, #4a148c);
+}
+
+.btn-trekking {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  border: none;
+  color: #fff;
+}
+.btn-trekking:hover {
+  background: linear-gradient(135deg, #1b5e20, #0d3d1a);
+}
+
+/* Favorites button */
 .add-fav-btn {
   background: #fff;
   border: 2px solid #28a745;
   color: #28a745;
-  font-weight: 500;
 }
-
 .add-fav-btn:hover {
   background: #28a745;
   color: #fff;
+}
+
+/* -------------------
+   Navbar
+------------------- */
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  margin: 0 0.25rem;
+}
+
+.navbar-nav .nav-link.active {
+  background-color: #007bff;
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link[href="#destinations"]:hover {
+  background: #8d6e63;
+  color: #fff !important;
+}
+.navbar-nav .nav-link[href="#guides"]:hover {
+  background: #ff9800;
+  color: #fff !important;
+}
+.navbar-nav .nav-link[href="#map"]:hover {
+  background: #4caf50;
+  color: #fff !important;
+}
+.navbar-nav .nav-link[href="#favorites"]:hover {
+  background: #9c27b0;
+  color: #fff !important;
+}
+
+/* -------------------
+   Map
+------------------- */
+#mapContainer {
+  width: 100%;
+  height: 500px;
 }
