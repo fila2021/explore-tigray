@@ -149,14 +149,26 @@ The following wireframes were created during the planning stage:
 
 ## 🖼️ Screenshots (Final Design)
 
-| Feature        | Screenshot                                                           |
-| -------------- | -------------------------------------------------------------------- |
-| Hero Section   | ![Hero Screenshot](assets/docs/screenshots/hero.png)                 |
-| Destinations   | ![Destinations Screenshot](assets/docs/screenshots/destinations.png) |
-| Tour Companies | ![Guides Screenshot](assets/docs/screenshots/guides.png)             |
-| Map of Tigray  | ![Map Screenshot](assets/docs/screenshots/map.png)                   |
-| Favorites      | ![Favorites Screenshot](assets/docs/screenshots/favorites.png)       |
-| Feedback Form  | ![Feedback Screenshot](assets/docs/screenshots/feedback.png)         |
+| Feature               | Screenshot                                                                    |
+| --------------------- | ----------------------------------------------------------------------------- |
+| Hero Section          | ![Hero Screenshot](assets/docs/screenshots/hero.png)                          |
+| Destinations          | ![Destinations Screenshot](assets/docs/screenshots/destinations.png)          |
+| Tour Companies        | ![Guides Screenshot](assets/docs/screenshots/tour.png)                        |
+| Map of Tigray         | ![Map Screenshot](assets/docs/screenshots/map.png)                            |
+| Favorites             | ![Favorites Screenshot](assets/docs/screenshots/favourites.png)               |
+| Feedback Form         | ![Feedback Screenshot](assets/docs/screenshots/feedback.png)                  |
+| Destination Drop Down | ![Dropdownlist Screenshot](assets/docs/screenshots/destinations-dropdown.png) |
+| Destination Drop Down | ![Dropdown1 Screenshot](assets/docs/screenshots/dropdown1.png)                |
+| Destination Drop Down | ![Dropdown2 Screenshot](assets/docs/screenshots/dropdown2.png)                |
+| Destination Drop Down | ![Dropdown3 Screenshot](assets/docs/screenshots/dropdown3.png)                |
+| Destination Drop Down | ![Dropdown4 Screenshot](assets/docs/screenshots/dropdown4.png)                |
+| Destination Drop Down | ![Dropdown5 Screenshot](assets/docs/screenshots/dropdown5.png)                |
+| Destination Drop Down | ![Dropdown6 Screenshot](assets/docs/screenshots/dropdown6.png)                |
+| Destination Drop Down | ![Dropdown7 Screenshot](assets/docs/screenshots/dropdown7.png)                |
+| Feedback Form         | ![Validation1 Screenshot](assets/docs/screenshots/form-validation1.png)       |
+| Feedback Form         | ![Validation2 Screenshot](assets/docs/screenshots/form-validation2.png)       |
+| Feedback Form         | ![Validation3 Screenshot](assets/docs/screenshots/form-validation3.png)       |
+| Feedback Form         | ![Confirmation Screenshot](assets/docs/screenshots/form-confirmation.png)     |
 
 ---
 
