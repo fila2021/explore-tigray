@@ -4,20 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Tigray</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        scroll-padding-top: 70px; /* offset for fixed navbar */
-      }
-    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -40,11 +32,12 @@
             <li class="nav-item">
               <a class="nav-link" href="#guides">Tour Companies</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#map">Map</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#map">Map</a></li>
             <li class="nav-item">
               <a class="nav-link" href="#favorites">Favorites</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#feedback">Feedback</a>
             </li>
           </ul>
         </div>
@@ -56,23 +49,18 @@
       <div class="overlay"></div>
       <div class="hero-content position-relative">
         <h1>Discover the Wonders of Tigray</h1>
-        <p>
-          Explore historic sites, natural beauty, culture, food, hotels, and
-          trekking routes.
-        </p>
-        <p class="lead mt-3">
-          <strong>Tigray:</strong> Incredible rock churches, stunning
-          landscapes, luxury & boutique lodges. Spend the day climbing to
-          ancient cave monasteries, rewarded by magnificent views, before
-          retreating to the comfort of your private veranda where the backdrop
-          of the Gheralta Mountains and a beautiful sunset await.
+        <p class="lead">
+          Incredible rock churches, stunning landscapes, luxury & boutique
+          lodges. Spend the day climbing to ancient cave monasteries, to be
+          rewarded by magnificent views, before retreating to the comfort of
+          your private veranda where the backdrop of the Gheralta Mountains and
+          a beautiful sunset is a welcome view.
         </p>
         <input
           type="text"
           id="searchInput"
-          class="form-control w-50 mx-auto mt-4"
+          class="form-control w-50 mx-auto"
           placeholder="Search destinations..."
-          aria-label="Search destinations"
         />
       </div>
     </header>
@@ -81,11 +69,7 @@
     <section id="destinations" class="container my-5">
       <h2 class="text-center mb-4">Top Destinations in Tigray</h2>
       <div class="d-flex justify-content-center mb-4">
-        <select
-          id="typeFilter"
-          class="form-select w-25"
-          aria-label="Filter destinations by type"
-        >
+        <select id="typeFilter" class="form-select w-25">
           <option value="all">All Types</option>
           <option value="historical">Historical</option>
           <option value="cultural">Cultural</option>
@@ -97,82 +81,75 @@
         </select>
       </div>
       <div class="row" id="destinationCards"></div>
-      <p id="noResults" class="no-results visually-hidden">
-        No destinations found.
-      </p>
+      <div id="noResults" class="no-results visually-hidden">
+        No results found.
+      </div>
     </section>
 
     <!-- Tour Companies -->
     <section id="guides" class="container my-5">
-      <h2 class="text-center mb-4">Recommended Tour Companies</h2>
-      <div class="row g-4">
-        <!-- Company 1 -->
+      <h2 class="text-center mb-4">Trusted Tour Companies</h2>
+      <div class="row">
         <div class="col-md-4">
-          <div class="card h-100 text-center shadow-sm">
+          <div class="card h-100">
             <img
-              src="images/company1.png"
+              src="assets/images/guide1.jpg"
               class="card-img-top"
               alt="Brilliant Ethiopia"
             />
-            <div class="card-body">
+            <div class="card-body text-center">
               <h5 class="card-title">Brilliant Ethiopia</h5>
               <p class="card-text">
-                Experts in immersive cultural and adventure tours across
-                Ethiopia, including Tigray’s rock-hewn churches and mountains.
+                Specialists in cultural and adventure tours across Ethiopia.
               </p>
               <a
                 href="https://www.brilliant-ethiopia.com/tigray"
                 target="_blank"
                 class="btn btn-primary"
-                >Visit Website</a
+                >Visit Site</a
               >
             </div>
           </div>
         </div>
-
-        <!-- Company 2 -->
         <div class="col-md-4">
-          <div class="card h-100 text-center shadow-sm">
+          <div class="card h-100">
             <img
-              src="images/company2.png"
+              src="assets/images/guide2.jpg"
               class="card-img-top"
               alt="Ethio Travel and Tours"
             />
-            <div class="card-body">
-              <h5 class="card-title">Gheralta Mountain Tours</h5>
+            <div class="card-body text-center">
+              <h5 class="card-title">Ethio Travel and Tours</h5>
               <p class="card-text">
-                One of Ethiopia’s leading tour operators, offering guided trips
-                to Axum, Yeha, Gheralta, and beyond.
+                Comprehensive packages for trekking, culture, and history in
+                Tigray.
               </p>
               <a
-                href="https://gheraltamountaintours.com/"
+                href="https://www.ethiotravelandtours.com/"
                 target="_blank"
                 class="btn btn-primary"
-                >Visit Website</a
+                >Visit Site</a
               >
             </div>
           </div>
         </div>
-
-        <!-- Company 3 -->
         <div class="col-md-4">
-          <div class="card h-100 text-center shadow-sm">
+          <div class="card h-100">
             <img
-              src="images/company3.png"
+              src="assets/images/guide3.jpg"
               class="card-img-top"
-              alt="Simien Eco Tours"
+              alt="Inside Ethiopia Tours"
             />
-            <div class="card-body">
-              <h5 class="card-title">Simien Eco Tours</h5>
+            <div class="card-body text-center">
+              <h5 class="card-title">Inside Ethiopia Tours</h5>
               <p class="card-text">
-                Focused on sustainable and eco-friendly travel, including
-                trekking routes and cultural tours in Tigray.
+                Authentic Ethiopian experiences with professional local guides.
               </p>
               <a
-                href="https://simienecotours.com/"
+                href="https://insideethiopiatours.com/"
                 target="_blank"
                 class="btn btn-primary"
-                >Visit Website</a
+                >Visit Site</a
               >
             </div>
           </div>
@@ -181,19 +158,15 @@
     </section>
 
     <!-- Map -->
-    <section id="map" class="container my-5 position-relative">
+    <section id="map" class="container my-5">
       <h2 class="text-center mb-4">Map of Tigray</h2>
-      <div id="mapLoader" class="map-loader visually-hidden">
-        Loading map...
-      </div>
-      <div id="mapError" class="map-error visually-hidden"></div>
-      <div id="mapContainer" style="height: 500px"></div>
+      <div id="mapContainer"></div>
     </section>
 
     <!-- Favorites -->
     <section id="favorites" class="container my-5">
-      <h2 class="text-center mb-4">Your Favorites</h2>
-      <div id="favoritesList" class="row"></div>
+      <h2 class="text-center mb-4">My Favorite Places</h2>
+      <div class="row" id="favoritesList"></div>
     </section>
 
     <!-- Feedback Form -->
@@ -202,13 +175,20 @@
       <p class="text-center mb-4">
         Have questions or suggestions? Share your thoughts with us below.
       </p>
-      <form id="feedbackForm" class="row g-3">
+
+      <form
+        id="feedbackForm"
+        action="https://formdump.codeinstitute.net/"
+        method="POST"
+        class="row g-3"
+      >
         <div class="col-md-6">
           <label for="name" class="form-label">Your Name</label>
           <input
             type="text"
             class="form-control"
             id="name"
+            name="name"
             placeholder="Enter your name"
             required
           />
@@ -219,6 +199,7 @@
             type="email"
             class="form-control"
             id="email"
+            name="email"
             placeholder="Enter your email"
             required
           />
@@ -228,6 +209,7 @@
           <textarea
             class="form-control"
             id="message"
+            name="message"
             rows="5"
             placeholder="Write your feedback..."
             required
@@ -239,15 +221,6 @@
           </button>
         </div>
       </form>
-
-      <!-- Success message -->
-      <div
-        id="feedbackSuccess"
-        class="alert alert-success mt-4 visually-hidden"
-        role="alert"
-      >
-        Thank you for your feedback! We’ll get back to you soon.
-      </div>
     </section>
 
     <!-- Footer -->
@@ -257,13 +230,8 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
-      async
-      defer
-    ></script>
-    <script src="js/map.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
-<!-- By Filmawit -->
