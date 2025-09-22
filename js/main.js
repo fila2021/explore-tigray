@@ -291,5 +291,26 @@ function renderFavorites() {
   });
 }
 
+// ---------------- Feedback Form ----------------
+const feedbackForm = document.getElementById("feedbackForm");
+const feedbackSuccess = document.getElementById("feedbackSuccess");
+
+if (feedbackForm) {
+  feedbackForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // For now, just show a success message
+    feedbackSuccess.classList.remove("visually-hidden");
+
+    // Reset form
+    feedbackForm.reset();
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      feedbackSuccess.classList.add("visually-hidden");
+    }, 5000);
+  });
+}
+
 // Render favorites on page load
 renderFavorites();
