@@ -31,6 +31,9 @@
             </li>
             <li class="nav-item"><a class="nav-link" href="#map">Map</a></li>
             <li class="nav-item"><a class="nav-link" href="#chat">Chat</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#favorites">Favorites</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -42,11 +45,9 @@
       <div class="hero-content position-relative">
         <h1>Discover the Wonders of Tigray</h1>
         <p>
-          Explore historic sites, natural beauty, and local culture in Tigray
+          Explore historic sites, natural beauty, culture, food, hotels, and
+          trekking routes.
         </p>
-        <label for="searchInput" class="visually-hidden"
-          >Search destinations</label
-        >
         <input
           type="text"
           id="searchInput"
@@ -61,7 +62,6 @@
     <section id="destinations" class="container my-5">
       <h2 class="text-center mb-4">Top Destinations in Tigray</h2>
       <div class="d-flex justify-content-center mb-4">
-        <label for="typeFilter" class="visually-hidden">Filter by type</label>
         <select
           id="typeFilter"
           class="form-select w-25"
@@ -72,30 +72,25 @@
           <option value="cultural">Cultural</option>
           <option value="nature">Nature</option>
           <option value="urban">Urban</option>
+          <option value="food">Food</option>
+          <option value="hotels">Hotels</option>
+          <option value="trekking">Trekking</option>
         </select>
       </div>
-
       <div class="row" id="destinationCards"></div>
-      <div id="noResults" class="no-results visually-hidden">
+      <p id="noResults" class="no-results visually-hidden">
         No destinations found.
-      </div>
+      </p>
     </section>
 
     <!-- Map -->
-    <section id="map" class="container my-5">
+    <section id="map" class="container my-5 position-relative">
       <h2 class="text-center mb-4">Map of Tigray</h2>
-      <div id="mapWrapper" class="position-relative">
-        <div
-          id="mapLoader"
-          class="map-loader visually-hidden"
-          role="status"
-          aria-live="polite"
-        >
-          Loading map...
-        </div>
-        <div id="mapError" class="map-error visually-hidden" role="alert"></div>
-        <div id="mapContainer" style="height: 500px"></div>
+      <div id="mapLoader" class="map-loader visually-hidden">
+        Loading map...
       </div>
+      <div id="mapError" class="map-error visually-hidden"></div>
+      <div id="mapContainer" style="height: 500px"></div>
     </section>
 
     <!-- Chat -->
@@ -109,16 +104,21 @@
           role="log"
           aria-live="polite"
         ></div>
-        <label for="userMessage" class="visually-hidden">Ask a question</label>
         <input
           type="text"
           id="userMessage"
           class="form-control"
           placeholder="Ask a question..."
-          aria-label="Ask a question"
+          aria-label="Ask chatbot"
         />
         <button id="sendBtn" class="btn btn-primary mt-2">Send</button>
       </div>
+    </section>
+
+    <!-- Favorites -->
+    <section id="favorites" class="container my-5">
+      <h2 class="text-center mb-4">Your Favorites</h2>
+      <div id="favoritesList" class="row"></div>
     </section>
 
     <!-- Footer -->
@@ -128,9 +128,8 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Google Maps API: replace with your own key when deploying -->
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoIIcgrKyvkfr-n3_ISN_M-G-44Jn0mYM&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
       async
       defer
     ></script>
