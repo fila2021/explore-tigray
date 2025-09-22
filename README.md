@@ -127,7 +127,7 @@ Final screenshots:
 ### Bug Log
 
 - **GitHub Pages 404** – Found: GitHub Pages returned 404.  
-  Fix: Added `.nojekyll` → Not-resolved.
+  Fix: Added `.nojekyll` → resolved.
 - **Map InfoWindow Bug** – Found: marker click error.  
   Fix: corrected `infoWindow.open(map, marker)` → resolved.
 - **Inline Styles** – Found: chatbot used inline `style`.  
@@ -186,7 +186,7 @@ still returns a **404 error**.
 
 ### Conclusion
 
-This appears to be a **GitHub Pages bug**, not an issue with the project code or repo structure. The full site works correctly in local development (via `index.html`) and passes HTML, CSS, and JavaScript validation.
+This appears to be a **GitHub Pages bug**, not an issue with the project code or repo structure. The full site works correctly in local development (via `index.html`) and passes HTML, CSS, and JavaScript validation. The issue is resolved for me but incase if it happens for you, follow te workaround instruction below.
 
 ### Workaround
 
