@@ -197,3 +197,65 @@ body {
 .card .btn:hover {
   opacity: 0.9;
 }
+/* General button styling */
+.btn {
+  border-radius: 50px; /* pill shape */
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary button */
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  border: none;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0056d2, #0041a8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Outline style */
+.btn-outline-primary,
+.btn-outline-success {
+  border-width: 2px;
+  font-weight: 500;
+}
+
+/* Success button */
+.btn-success {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  border: none;
+  color: #fff;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #1e7e34, #155d27);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Outline buttons hover effect */
+.btn-outline-primary:hover,
+.btn-outline-success:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Add-favorite button specific style */
+.add-fav-btn {
+  background: #fff;
+  border: 2px solid #28a745;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.add-fav-btn:hover {
+  background: #28a745;
+  color: #fff;
+}
