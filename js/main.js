@@ -89,7 +89,7 @@ const destinations = [
     name: "Gera'alta Lodge Restaurant",
     description:
       "Beautiful lodge restaurant offering local and continental food.",
-    image: "images/geraalta-restaurant.jpg",
+    image: "images/geraalta-restaurant.avif",
     lat: 14.419,
     lng: 39.05,
     type: "food",
