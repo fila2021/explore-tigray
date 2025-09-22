@@ -19,9 +19,12 @@ function updateMapMarkers(list) {
       map: map,
       title: dest.name,
     });
-    const info = new google.maps.InfoWindow({
-      content: `<h5>${dest.name}</h5><p>${dest.description}</p>`,
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<h5>${dest.name}</h5>
+            <p>${dest.description}</p>
+            <a href="${dest.wiki}" target="_blank">Read more on Wikipedia</a>`,
     });
+
     marker.addListener("click", () => info.open(map, marker));
     markers.push(marker);
   });
