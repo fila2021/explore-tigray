@@ -271,6 +271,27 @@ The following wireframes were created during the planning stage:
 
 ---
 
+🧪 Responsiveness Testing
+
+The site was tested across multiple devices and screen sizes using Responsive Design Checker
+.
+
+✅ 1400px (Desktop) – Hero section, navbar, and grid layouts display correctly.
+
+✅ 1024px (Laptop/Tablet Landscape) – Destinations align neatly, navigation remains accessible.
+
+✅ 768px (Tablet Portrait) – Cards stack into two columns, hero text scales properly.
+
+✅ 375px (Mobile) – Single-column layout, navbar collapses into hamburger menu, map and form are scrollable.
+
+### Screenshots
+
+![Responsive Desktop](assets/docs/screenshots/responsive_desktop.png)  
+![Responsive Tablet](assets/docs/screenshots/responsive_tablet.png)  
+![Responsive Mobile](assets/docs/screenshots/responsive_mobile.png)
+
+---
+
 ## 🐛 Known Issue: GitHub Pages 404 Bug
 
 During deployment, the project encountered a **GitHub Pages 404 issue**, even though:
