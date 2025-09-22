@@ -83,15 +83,6 @@ const destinations = [
     type: "food",
   },
   {
-    name: "Gera'alta Lodge Restaurant",
-    description:
-      "Beautiful lodge restaurant offering local and continental food.",
-    image: "images/geraalta-restaurant.avif",
-    lat: 14.419,
-    lng: 39.05,
-    type: "food",
-  },
-  {
     name: "Yeha Heritage Restaurant",
     description: "Rustic dining with a focus on ancient Tigrayan recipes.",
     image: "images/yeha-restaurant.jpg",
