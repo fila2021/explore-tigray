@@ -237,7 +237,10 @@ body {
   width: 100%;
   height: 500px;
 }
-/* Feedback form styles */
+
+/* -------------------
+   Feedback Form
+------------------- */
 #feedbackForm .form-control {
   border-radius: 0.75rem;
   box-shadow: none;
