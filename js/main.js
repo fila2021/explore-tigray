@@ -105,82 +105,32 @@ typeFilter.addEventListener("change", filterAndDisplay);
 // Initial render
 displayDestinations(destinations);
 
-// Chatbot
+// ---------------- Chatbot ----------------
 const messagesDiv = document.getElementById("messages");
 const userMessageInput = document.getElementById("userMessage");
 const sendBtn = document.getElementById("sendBtn");
 
-userMessageInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendBtn.click();
-});
+// Normalize string (for better matching)
+function normalizeString(s) {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
 
-sendBtn.addEventListener("click", () => {
-  const msg = userMessageInput.value.trim();
-  if (!msg) return;
+// Escape regex special chars
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 
-  const userMsgDiv = document.createElement("div");
-  userMsgDiv.textContent = "You: " + msg;
-  messagesDiv.appendChild(userMsgDiv);
-  userMessageInput.value = "";
-
-  let response = destinations.map((d) => d.name).join(", ");
-  let matched = false;
-
-  const typeMap = {
-    historical: destinations
-      .filter((d) => d.type === "historical")
-      .map((d) => d.name)
-      .join(", "),
-    cultural: destinations
-      .filter((d) => d.type === "cultural")
-      .map((d) => d.name)
-      .join(", "),
-    nature: destinations
-      .filter((d) => d.type === "nature")
-      .map((d) => d.name)
-      .join(", "),
-    urban: destinations
-      .filter((d) => d.type === "urban")
-      .map((d) => d.name)
-      .join(", "),
-  };
-
-  for (let key in typeMap) {
-    if (msg.toLowerCase().includes(key)) {
-      response = `Top ${key} destinations: ${typeMap[key]}`;
-      matched = true;
-    }
-  }
-
-  destinations.forEach((dest) => {
-    if (msg.toLowerCase().includes(dest.name.toLowerCase())) {
-      response = `${dest.name} is a wonderful place! ${dest.description} 
-    <a href="${dest.wiki}" target="_blank" class="wiki-link">Read more on Wikipedia</a>`;
-    }
-  });
-
-  if (!matched) {
-    response =
-      "Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.";
-  }
-
-  const botMsgDiv = document.createElement("div");
-  botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
-  messagesDiv.appendChild(botMsgDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-  botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const destName = e.target.dataset.name;
-      filterByDestination(destName);
-    });
-  });
-});
-
-// Make links clickable
+// Replace destination names with clickable spans
 function makeClickableLinks(text) {
+  if (/<a\s/i.test(text)) return text; // don’t overwrite anchor tags
   destinations.forEach((dest) => {
-    const regex = new RegExp(`\\b${dest.name}\\b`, "g");
+    const nameEsc = escapeRegExp(dest.name);
+    const regex = new RegExp(`\\b${nameEsc}\\b`, "gi");
     text = text.replace(
       regex,
       `<span class="destination-link" data-name="${dest.name}">${dest.name}</span>`
@@ -188,6 +138,88 @@ function makeClickableLinks(text) {
   });
   return text;
 }
+
+// Handle Enter key
+userMessageInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendBtn.click();
+});
+
+// Chat send button
+sendBtn.addEventListener("click", () => {
+  const msg = userMessageInput.value.trim();
+  if (!msg) return;
+
+  // Show user's message
+  const userMsgDiv = document.createElement("div");
+  userMsgDiv.textContent = "You: " + msg;
+  messagesDiv.appendChild(userMsgDiv);
+  userMessageInput.value = "";
+
+  const msgNorm = normalizeString(msg);
+  let response = "";
+  let matched = false;
+
+  // Match by type
+  const types = ["historical", "cultural", "nature", "urban"];
+  for (const t of types) {
+    if (msgNorm.includes(t)) {
+      const names = destinations
+        .filter((d) => d.type === t)
+        .map((d) => d.name)
+        .join(", ");
+      response = `Top ${t} destinations: ${names}`;
+      matched = true;
+      break;
+    }
+  }
+
+  // Match by destination
+  if (!matched) {
+    for (const dest of destinations) {
+      if (msgNorm.includes(normalizeString(dest.name))) {
+        response = `
+          <strong>${dest.name}</strong> — ${dest.description}
+          <div style="margin-top:.5rem">
+            <a href="${dest.wiki}" target="_blank" class="wiki-link">Read more on Wikipedia</a>
+            &nbsp;
+            <button class="btn btn-sm btn-outline-primary show-dest-btn" data-name="${dest.name}">Show on site</button>
+          </div>
+        `;
+        matched = true;
+        break;
+      }
+    }
+  }
+
+  // Fallback
+  if (!matched) {
+    response =
+      "Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.";
+  }
+
+  // Bot message
+  const botMsgDiv = document.createElement("div");
+  if (!/<a\s/i.test(response)) {
+    botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
+  } else {
+    botMsgDiv.innerHTML = "Bot: " + response;
+  }
+  messagesDiv.appendChild(botMsgDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+  // Add click listeners
+  botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      filterByDestination(e.target.dataset.name);
+    });
+  });
+
+  botMsgDiv.querySelectorAll(".show-dest-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      filterByDestination(e.target.dataset.name);
+    });
+  });
+});
 
 // Filter by chatbot click
 function filterByDestination(name) {
@@ -204,7 +236,7 @@ function filterByDestination(name) {
   });
 }
 
-// 404 redirect
+// 404 redirect (for GitHub Pages)
 if (
   window.location.pathname !== "/index.html" &&
   window.location.pathname !== "/"
