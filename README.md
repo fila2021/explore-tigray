@@ -126,18 +126,17 @@ A wireframe was created during the planning stage to define layout and navigatio
 
 ### Manual Testing
 
-| Feature          | Test                                 | Result                           |
-| ---------------- | ------------------------------------ | -------------------------------- |
-| Navbar           | Click links                          | Scrolls to correct section       |
-| Search Bar       | Search "Axum"                        | Shows Axum only                  |
-| Filter Dropdown  | Select "Historical"                  | Shows Axum & Yeha                |
-| Combined Filter  | Search "Adigrat" + Filter "Cultural" | Works correctly                  |
-| Chatbot          | Ask "Tell me about Axum"             | Returns Axum description         |
-| Chatbot Fallback | Ask "Banana"                         | Returns fallback message         |
-| Enter Key        | Press Enter in chatbot               | Sends message                    |
-| Map Markers      | Click marker                         | Info window displays             |
-| No Results       | Search nonsense                      | Displays “No destinations found” |
-| Redirect         | Open `/404`                          | Redirects to index.html          |
+| Feature         | Test                                 | Result                                                                                                 |
+| --------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| Navbar          | Click links                          | Scrolls to correct section                                                                             |
+| Search Bar      | Search "Axum"                        | Shows Axum only                                                                                        |
+| Filter Dropdown | Select "Historical"                  | Shows Axum & Yeha                                                                                      |
+| Combined Filter | Search "Adigrat" + Filter "Cultural" | Works correctly                                                                                        |
+| Chatbot         | Ask "Tell me about Axum"             | Returns Axum description                                                                               |
+| Enter Key       | Press Enter in chatbot               | Sends message                                                                                          |
+| Map Markers     | Click marker                         | Info window displays                                                                                   |
+| No Results      | Search nonsense                      | Displays “Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.” |
+| Redirect        | Open `/404`                          | Redirects to index.html                                                                                |
 
 ### Validation
 
