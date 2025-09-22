@@ -68,34 +68,7 @@ This project was built as part of the **Interactive Front-End Development Milest
 
 ## 🗂 Folder Structure
 
-explore-tigray/
-│
-├─ index.html
-│
-├─ assets/
-│ ├─ css/
-│ │ └─ style.css
-│ │
-│ ├─ js/
-│ │ ├─ main.js
-│ │ └─ map.js
-│ │
-│ ├─ images/
-│ │ ├─ axum.jpg
-│ │ ├─ shire.jpg
-│ │ ├─ mekelle.jpg
-│ │ ├─ geraalta.jpg
-│ │ ├─ yeha.jpg
-│ │ ├─ adigrat.jpg
-│ │ ├─ trek.jpg
-│ │ └─ ... (other hotel/restaurant images)
-│ │
-│ └─ docs/
-│ └─ wireframes/
-│ ├─ wireframe_desktop.png
-│ └─ wireframe_mobile.png
-│
-└─ README.md
+![Folder Structure](assets/docs/wireframes/folder-structure.png)
 
 ---
 
