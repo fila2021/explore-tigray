@@ -1,5 +1,6 @@
-// ---------------- Data ----------------
+// ---------------- Destinations Data ----------------
 const destinations = [
+  // ---- Historical & Cultural ----
   {
     name: "Axum",
     description: "Historic city with ancient obelisks and churches.",
@@ -54,15 +55,141 @@ const destinations = [
     type: "cultural",
     wiki: "https://en.wikipedia.org/wiki/Adigrat",
   },
+
+  // ---- Restaurants (Food) ----
+  {
+    name: "Axum Traditional Restaurant",
+    description: "Authentic Tigrayan cuisine including injera and tsebhi.",
+    image: "images/axum-restaurant.jpg",
+    lat: 14.123,
+    lng: 38.725,
+    type: "food",
+    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+  },
+  {
+    name: "Shire Cultural Restaurant",
+    description: "Local dishes with cultural dance performances.",
+    image: "images/shire-restaurant.jpg",
+    lat: 14.118,
+    lng: 38.285,
+    type: "food",
+    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+  },
+  {
+    name: "Mekelle Desta Restaurant",
+    description:
+      "Popular restaurant serving Ethiopian coffee and traditional meals.",
+    image: "images/mekelle-restaurant.jpg",
+    lat: 13.497,
+    lng: 39.477,
+    type: "food",
+    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+  },
+  {
+    name: "Gera'alta Lodge Restaurant",
+    description:
+      "Beautiful lodge restaurant offering local and continental food.",
+    image: "images/geraalta-restaurant.jpg",
+    lat: 14.419,
+    lng: 39.05,
+    type: "food",
+    wiki: "https://en.wikipedia.org/wiki/Gheralta",
+  },
+  {
+    name: "Yeha Heritage Restaurant",
+    description: "Rustic dining with a focus on ancient Tigrayan recipes.",
+    image: "images/yeha-restaurant.jpg",
+    lat: 14.122,
+    lng: 39.036,
+    type: "food",
+    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+  },
+  {
+    name: "Adigrat Family Restaurant",
+    description: "Cozy local eatery serving injera with tsebhi and shiro.",
+    image: "images/adigrat-restaurant.jpg",
+    lat: 14.281,
+    lng: 39.472,
+    type: "food",
+    wiki: "https://en.wikipedia.org/wiki/Tigray_cuisine",
+  },
+
+  // ---- Hotels ----
+  {
+    name: "Axum Hotel",
+    description: "Comfortable hotel with modern amenities near obelisks.",
+    image: "images/axum-hotel.jpg",
+    lat: 14.125,
+    lng: 38.726,
+    type: "hotels",
+    wiki: "https://en.wikipedia.org/wiki/Axum",
+  },
+  {
+    name: "Shire Endaselassie Hotel",
+    description: "Popular hotel with cultural ambiance and local hospitality.",
+    image: "images/shire-hotel.jpg",
+    lat: 14.119,
+    lng: 38.284,
+    type: "hotels",
+    wiki: "https://en.wikipedia.org/wiki/Shire,_Ethiopia",
+  },
+  {
+    name: "Planet Hotel Mekelle",
+    description: "Luxury hotel with conference halls, spa, and dining.",
+    image: "images/mekelle-hotel.jpg",
+    lat: 13.498,
+    lng: 39.476,
+    type: "hotels",
+    wiki: "https://en.wikipedia.org/wiki/Mekelle",
+  },
+  {
+    name: "Gera'alta Lodge",
+    description: "Eco-lodge with breathtaking views and trekking options.",
+    image: "images/geraalta-hotel.jpg",
+    lat: 14.42,
+    lng: 39.049,
+    type: "hotels",
+    wiki: "https://en.wikipedia.org/wiki/Gheralta",
+  },
+  {
+    name: "Yeha Hotel",
+    description: "Charming hotel overlooking ancient ruins of Yeha.",
+    image: "images/yeha-hotel.jpg",
+    lat: 14.124,
+    lng: 39.034,
+    type: "hotels",
+    wiki: "https://en.wikipedia.org/wiki/Yeha",
+  },
+  {
+    name: "Adigrat Tourist Hotel",
+    description: "Friendly hotel with easy access to cultural landmarks.",
+    image: "images/adigrat-hotel.jpg",
+    lat: 14.282,
+    lng: 39.471,
+    type: "hotels",
+    wiki: "https://en.wikipedia.org/wiki/Adigrat",
+  },
+
+  // ---- Trekking ----
+  {
+    name: "Gheralta Trek",
+    description: "Trekking route across dramatic cliffs and valleys.",
+    image: "images/trek.jpg",
+    lat: 14.41,
+    lng: 39.05,
+    type: "trekking",
+    wiki: "https://en.wikipedia.org/wiki/Gheralta",
+  },
 ];
 
-// DOM elements
+// ---------------- DOM Elements ----------------
 const cardContainer = document.getElementById("destinationCards");
 const typeFilter = document.getElementById("typeFilter");
 const searchInput = document.getElementById("searchInput");
 const noResultsEl = document.getElementById("noResults");
+const favContainer = document.getElementById("favoritesList");
 
-// Display destinations
+// ---------------- Display Destinations ----------------
 function displayDestinations(list) {
   cardContainer.innerHTML = "";
   if (!Array.isArray(list) || list.length === 0) {
@@ -80,15 +207,21 @@ function displayDestinations(list) {
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${dest.name}</h5>
           <p class="card-text">${dest.description}</p>
-          <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mt-auto">Learn More</a>
+          <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary mb-2">Learn More</a>
+          <button class="btn btn-outline-success mt-auto add-fav-btn" data-name="${dest.name}">Add to Favorites</button>
         </div>
       </div>
     `;
     cardContainer.appendChild(card);
   });
+
+  // Attach event listeners for favorites
+  document.querySelectorAll(".add-fav-btn").forEach((btn) => {
+    btn.addEventListener("click", () => addToFavorites(btn.dataset.name));
+  });
 }
 
-// Filter and search
+// ---------------- Filter and Search ----------------
 function filterAndDisplay() {
   const query = searchInput.value.toLowerCase();
   const type = typeFilter.value;
@@ -105,124 +238,47 @@ function filterAndDisplay() {
   }
 }
 
-// Events
 searchInput.addEventListener("input", filterAndDisplay);
 typeFilter.addEventListener("change", filterAndDisplay);
 
 // Initial render
 displayDestinations(destinations);
 
-// ---------------- Chatbot ----------------
-const messagesDiv = document.getElementById("messages");
-const userMessageInput = document.getElementById("userMessage");
-const sendBtn = document.getElementById("sendBtn");
-
-function normalizeString(s) {
-  return s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
+// ---------------- Favorites ----------------
+function addToFavorites(name) {
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  if (!favorites.includes(name)) favorites.push(name);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  renderFavorites();
 }
 
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-function makeClickableLinks(text) {
-  if (/<a\s/i.test(text)) return text;
-  destinations.forEach((dest) => {
-    const nameEsc = escapeRegExp(dest.name);
-    const regex = new RegExp(`\\b${nameEsc}\\b`, "gi");
-    text = text.replace(
-      regex,
-      `<span class="destination-link" data-name="${dest.name}">${dest.name}</span>`
-    );
-  });
-  return text;
-}
-
-userMessageInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendBtn.click();
-});
-
-sendBtn.addEventListener("click", () => {
-  const msg = userMessageInput.value.trim();
-  if (!msg) return;
-
-  const userMsgDiv = document.createElement("div");
-  userMsgDiv.className = "user-message";
-  userMsgDiv.textContent = "You: " + msg;
-  messagesDiv.appendChild(userMsgDiv);
-  userMessageInput.value = "";
-
-  const msgNorm = normalizeString(msg);
-  let response = "";
-  let matched = false;
-
-  // Match by type
-  const types = ["historical", "cultural", "nature", "urban"];
-  for (const t of types) {
-    if (msgNorm.includes(t)) {
-      const names = destinations
-        .filter((d) => d.type === t)
-        .map((d) => d.name)
-        .join(", ");
-      response = `Top ${t} destinations: ${names}`;
-      matched = true;
-      break;
-    }
+function renderFavorites() {
+  favContainer.innerHTML = "";
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  if (favorites.length === 0) {
+    favContainer.innerHTML =
+      "<p class='text-center'>No favorites added yet.</p>";
+    return;
   }
 
-  // Match by destination
-  if (!matched) {
-    for (const dest of destinations) {
-      if (msgNorm.includes(normalizeString(dest.name))) {
-        response = `
-          <strong>${dest.name}</strong> — ${dest.description}
-          <div class="mt-2">
-            <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="wiki-link">Read more on Wikipedia</a>
+  favorites.forEach((name) => {
+    const dest = destinations.find((d) => d.name === name);
+    if (!dest) return;
+
+    favContainer.innerHTML += `
+      <div class="col-md-4">
+        <div class="card h-100 border-success">
+          <img src="${dest.image}" class="card-img-top" alt="${dest.name}">
+          <div class="card-body">
+            <h5 class="card-title">${dest.name}</h5>
+            <p class="card-text">${dest.description}</p>
+            <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-success">Learn More</a>
           </div>
-        `;
-        matched = true;
-        break;
-      }
-    }
-  }
-
-  if (!matched) {
-    response =
-      "Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.";
-  }
-
-  const botMsgDiv = document.createElement("div");
-  botMsgDiv.className = "bot-message";
-  if (!/<a\s/i.test(response)) {
-    botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
-  } else {
-    botMsgDiv.innerHTML = "Bot: " + response;
-  }
-  messagesDiv.appendChild(botMsgDiv);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-
-  botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      filterByDestination(e.target.dataset.name);
-    });
-  });
-});
-
-function filterByDestination(name) {
-  const filtered = destinations.filter((d) => d.name === name);
-  displayDestinations(filtered);
-  if (typeof updateMapMarkers === "function") updateMapMarkers(filtered);
-
-  const cards = document.querySelectorAll("#destinationCards .card");
-  cards.forEach((card) => {
-    const title = card.querySelector(".card-title").textContent;
-    card.style.border = title === name ? "3px solid #007bff" : "";
-    if (title === name)
-      card.scrollIntoView({ behavior: "smooth", block: "center" });
+        </div>
+      </div>
+    `;
   });
 }
+
+// Render favorites on page load
+renderFavorites();
