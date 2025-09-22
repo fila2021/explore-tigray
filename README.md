@@ -71,7 +71,8 @@ explore-tigray/
 │   ├─ shire.jpg
 │   └─ mekelle.jpg
 ├─ docs/
-│   ├─ wireframe.png
+│   ├─ wireframes
+│       ├─ wireframe.png
 │   └─ screenshots/
 │       ├─ hero.png
 │       ├─ destinations.png
@@ -86,7 +87,7 @@ explore-tigray/
 
 A wireframe was created during the planning stage to define layout and navigation:
 
-![Wireframe](docs/wireframe.png)
+![Wireframe](docs/wireframes/wireframe.png)
 
 ---
 
