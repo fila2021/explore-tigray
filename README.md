@@ -1,14 +1,6 @@
-# 🌍 Explore Tigray – Interactive Front-End Project
-
-## 📖 Project Overview
+# 🌍 Explore Tigray – Distinction-ready Interactive Front-End Project
 
 **Explore Tigray** is an interactive front-end website that allows users to explore the **historic, cultural, urban, and natural** destinations of the Tigray region in Ethiopia.
-
-The site provides:
-
-- **Search and filter tools** to quickly find destinations.
-- **Dynamic Google Maps integration** to visualize locations.
-- **Interactive chatbot support** for suggestions and filtering.
 
 This project demonstrates **dynamic front-end development** using **HTML, CSS, JavaScript, Bootstrap, and the Google Maps API**, ensuring a responsive and engaging user experience.
 
@@ -37,18 +29,10 @@ This project demonstrates **dynamic front-end development** using **HTML, CSS, J
 3. **Destination Cards** – responsive grid with images, names, and descriptions.
 4. **Dynamic Google Maps** – markers update based on user filters/search.
 5. **Smart Chatbot** – keyword recognition, clickable suggestions, and helpful responses.
-6. **Accessibility Features** – alt text for images, high contrast overlay, aria-live chat updates, keyboard-friendly chat (Enter key support).
-7. **Responsive Design** – works on desktop, tablet, and mobile.
-8. **404 Redirect** – invalid URLs redirect back to `index.html`.
-
----
-
-## 🛠 Technologies Used
-
-- **HTML5** – page structure
-- **CSS3 & Bootstrap 5** – responsive layout and styling
-- **JavaScript (ES6)** – search, filter, chatbot, DOM updates
-- **Google Maps API** – maps and destination markers
+6. **Accessibility Features** – labels, aria-live updates, high contrast overlay, keyboard support.
+7. **Error Handling** – map loader, error banner if Google Maps fails.
+8. **Responsive Design** – works on desktop, tablet, and mobile.
+9. **404 Redirect** – `404.html` automatically redirects to `index.html`.
 
 ---
 
@@ -83,22 +67,20 @@ explore-tigray/
 
 ---
 
-## 🎨 Wireframe (Planning Stage)
+## 🎨 Wireframe & Screenshots
 
-A wireframe was created during the planning stage to define layout and navigation:
+Wireframe used for planning layout:
 
 ![Wireframe](docs/wireframes/wireframe.png)
 
----
+Final screenshots:
 
-## 📸 Final Screenshots
-
-| Feature            | Screenshot                                                    |
-| ------------------ | ------------------------------------------------------------- |
-| Hero Section       | ![Hero Screenshot](docs/screenshots/hero.png)                 |
-| Destinations Cards | ![Destinations Screenshot](docs/screenshots/destinations.png) |
-| Google Map         | ![Map Screenshot](docs/screenshots/map.png)                   |
-| Chatbot Support    | ![Chat Screenshot](docs/screenshots/chat.png)                 |
+| Feature            | Screenshot                                  |
+| ------------------ | ------------------------------------------- |
+| Hero Section       | ![Hero](docs/screenshots/hero.png)          |
+| Destinations Cards | ![Cards](docs/screenshots/destinations.png) |
+| Google Map         | ![Map](docs/screenshots/map.png)            |
+| Chatbot Support    | ![Chat](docs/screenshots/chat.png)          |
 
 ---
 
@@ -106,39 +88,56 @@ A wireframe was created during the planning stage to define layout and navigatio
 
 - **Consistency**: Navbar fixed at the top, consistent layout.
 - **Clarity**: Overlay ensures text contrast in hero section.
-- **Accessibility**: Alt text, aria-live for chatbot, keyboard (Enter key) support.
+- **Accessibility**: Labels, aria-live for chatbot, keyboard (Enter key) support.
 - **Interactivity**: Search, filter, map, and chatbot help users achieve goals.
-- **Feedback**: Clear “No results found” messages and chatbot fallback responses.
+- **Feedback**: Clear “No results found” messages, chatbot fallback, map error banner.
 
 ---
 
-## 🚀 Deployment
+## 🚀 Deployment (Step-by-step)
 
-1. Push project folder to GitHub.
-2. Enable **GitHub Pages** in repository settings.
-3. Ensure `index.html` is in the root directory.
-4. Replace Google Maps API key with your own valid key.
-5. Visit GitHub Pages URL to access the live site.
+1. Replace `YOUR_API_KEY` in `index.html` with your own Google Maps API key.
+2. Ensure `index.html` and `404.html` are in the repo root.
+3. Add a **blank** `.nojekyll` file at the repo root.
+4. Push changes to `main` branch.
+5. In GitHub: **Settings → Pages → Source → main / root**.
+6. Wait a few minutes and visit your URL:  
+   `https://<username>.github.io/<repo-name>/`
+7. If 404 occurs, test `https://<username>.github.io/<repo-name>/404.html` → it should auto-redirect to home.
 
 ---
 
 ## 🧪 Testing
 
-### Manual Testing
+### Manual Test Table
 
-| Feature         | Test                                 | Result                                                                                                 |
-| --------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Navbar          | Click links                          | Scrolls to correct section                                                                             |
-| Search Bar      | Search "Axum"                        | Shows Axum only                                                                                        |
-| Filter Dropdown | Select "Historical"                  | Shows Axum & Yeha                                                                                      |
-| Combined Filter | Search "Adigrat" + Filter "Cultural" | Works correctly                                                                                        |
-| Chatbot         | Ask "Tell me about Axum"             | Returns Axum description                                                                               |
-| Enter Key       | Press Enter in chatbot               | Sends message                                                                                          |
-| Map Markers     | Click marker                         | Info window displays                                                                                   |
-| No Results      | Search nonsense                      | Displays “Sorry, I don’t know that. Try asking about 'historical', 'cultural', or a destination name.” |
-| Redirect        | Open `/404`                          | Redirects to index.html                                                                                |
+| Feature         | Test                                 | Result                        |
+| --------------- | ------------------------------------ | ----------------------------- |
+| Navbar          | Click links                          | ✅ Scrolls to correct section |
+| Search Bar      | Search "Axum"                        | ✅ Shows Axum only            |
+| Filter Dropdown | Select "Historical"                  | ✅ Shows Axum & Yeha          |
+| Combined Filter | Search "Adigrat" + Filter "Cultural" | ✅ Works correctly            |
+| Chatbot         | Ask "Tell me about Axum"             | ✅ Returns summary + button   |
+| Enter Key       | Press Enter in chatbot               | ✅ Sends message              |
+| Map Markers     | Click marker                         | ✅ Info window appears        |
+| Map Failure     | Use invalid API key                  | ✅ Shows error banner         |
+| No Results      | Search nonsense                      | ✅ “No destinations found.”   |
+| 404 Redirect    | Navigate to `/random`                | ✅ Redirects to index.html    |
 
-### Validation
+### Bug Log
+
+- **GitHub Pages 404** – Found: GitHub Pages returned 404.  
+  Fix: Added `.nojekyll` → Not-resolved.
+- **Map InfoWindow Bug** – Found: marker click error.  
+  Fix: corrected `infoWindow.open(map, marker)` → resolved.
+- **Inline Styles** – Found: chatbot used inline `style`.  
+  Fix: moved to CSS classes → resolved.
+- **Missing ARIA** – Found: no `aria-live` for chatbot.  
+  Fix: added `role="log" aria-live="polite"` → resolved.
+
+---
+
+## ✅ Validation & Linting
 
 - **HTML** – Passed W3C validation.
 - **CSS** – Passed Jigsaw validation.
@@ -148,19 +147,19 @@ A wireframe was created during the planning stage to define layout and navigatio
 
 ## ♿ Accessibility
 
-- **Alt text** for all images.
+- **Labels** for all form inputs.
+- **ARIA live regions** for chatbot and map loader.
 - **Color contrast overlay** in hero for readability.
-- **ARIA live region** for chatbot updates.
-- **Keyboard accessibility** (Enter key sends messages).
+- **Keyboard support** (Enter key sends messages).
 
 ---
 
-## 🙌 Code Attribution
+## 🔗 Attribution
 
-- Bootstrap 5: [https://getbootstrap.com](https://getbootstrap.com)
-- Google Maps API: [https://developers.google.com/maps/documentation](https://developers.google.com/maps/documentation)
-- Images: placeholders / educational use (replace with licensed sources if publishing).
-- All other code written by the author.
+- Bootstrap 5 – [https://getbootstrap.com](https://getbootstrap.com)
+- Google Maps API – [https://developers.google.com/maps](https://developers.google.com/maps)
+- Images – placeholders / educational use.
+- All other code authored by project owner.
 
 ---
 
@@ -202,4 +201,4 @@ For assessment:
 
 - Add **favorites list** for logged-in users.
 - Expand **chatbot intelligence** with AI API(external API, example Chatgpt).
-- Add **new categories**: food, hotels, trekking routes.
+- Add **new categories**: food, hotels, tracking routes.

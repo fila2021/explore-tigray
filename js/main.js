@@ -1,4 +1,4 @@
-// Destination data
+// ---------------- Data ----------------
 const destinations = [
   {
     name: "Axum",
@@ -60,10 +60,17 @@ const destinations = [
 const cardContainer = document.getElementById("destinationCards");
 const typeFilter = document.getElementById("typeFilter");
 const searchInput = document.getElementById("searchInput");
+const noResultsEl = document.getElementById("noResults");
 
 // Display destinations
 function displayDestinations(list) {
   cardContainer.innerHTML = "";
+  if (!Array.isArray(list) || list.length === 0) {
+    noResultsEl.classList.remove("visually-hidden");
+    return;
+  }
+  noResultsEl.classList.add("visually-hidden");
+
   list.forEach((dest) => {
     const card = document.createElement("div");
     card.classList.add("col-md-4");
@@ -73,7 +80,10 @@ function displayDestinations(list) {
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${dest.name}</h5>
           <p class="card-text">${dest.description}</p>
-          <a href="${dest.wiki}" target="_blank" class="btn btn-outline-primary mt-auto">Learn More</a>
+          <div class="mt-auto d-flex justify-content-between align-items-center">
+            <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">Learn More</a>
+            <button class="btn btn-sm btn-outline-secondary show-dest-btn" data-name="${dest.name}">Show on site</button>
+          </div>
         </div>
       </div>
     `;
@@ -151,6 +161,7 @@ sendBtn.addEventListener("click", () => {
 
   // Show user's message
   const userMsgDiv = document.createElement("div");
+  userMsgDiv.className = "user-message";
   userMsgDiv.textContent = "You: " + msg;
   messagesDiv.appendChild(userMsgDiv);
   userMessageInput.value = "";
@@ -179,8 +190,8 @@ sendBtn.addEventListener("click", () => {
       if (msgNorm.includes(normalizeString(dest.name))) {
         response = `
           <strong>${dest.name}</strong> — ${dest.description}
-          <div style="margin-top:.5rem">
-            <a href="${dest.wiki}" target="_blank" class="wiki-link">Read more on Wikipedia</a>
+          <div class="mt-2">
+            <a href="${dest.wiki}" target="_blank" rel="noopener noreferrer" class="wiki-link">Read more on Wikipedia</a>
             &nbsp;
             <button class="btn btn-sm btn-outline-primary show-dest-btn" data-name="${dest.name}">Show on site</button>
           </div>
@@ -199,6 +210,7 @@ sendBtn.addEventListener("click", () => {
 
   // Bot message
   const botMsgDiv = document.createElement("div");
+  botMsgDiv.className = "bot-message";
   if (!/<a\s/i.test(response)) {
     botMsgDiv.innerHTML = "Bot: " + makeClickableLinks(response);
   } else {
@@ -207,7 +219,7 @@ sendBtn.addEventListener("click", () => {
   messagesDiv.appendChild(botMsgDiv);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-  // Add click listeners
+  // Add click listeners (delegate for dynamic content)
   botMsgDiv.querySelectorAll(".destination-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       filterByDestination(e.target.dataset.name);
@@ -236,10 +248,4 @@ function filterByDestination(name) {
   });
 }
 
-// 404 redirect (for GitHub Pages)
-if (
-  window.location.pathname !== "/index.html" &&
-  window.location.pathname !== "/"
-) {
-  window.location.href = "/index.html";
-}
+// 404 handling removed from JS to avoid unexpected redirects on hosting platforms.
