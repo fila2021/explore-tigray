@@ -59,7 +59,6 @@ explore-tigray/
 │ ├─ mekelle-restaurant.jpg
 │ ├─ geraalta.jpg
 │ ├─ geraalta-hotel.avif
-│ ├─ geraalta-restaurant.jpg
 │ ├─ yeha.jpg
 │ ├─ yeha-hotel.jpg
 │ ├─ yeha-restaurant.jpg
