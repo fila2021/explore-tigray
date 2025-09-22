@@ -83,25 +83,25 @@ explore-tigray/
 │ │ ├─ main.js
 │ │ └─ map.js
 │ │
-│ ├─ images/
-│ │ ├─ axum.jpg
-│ │ ├─ axum-hotel.jpg
-│ │ ├─ axum-restaurant.jpg
-│ │ ├─ shire.jpg
-│ │ ├─ shire-hotel.jpg
-│ │ ├─ shire-restaurant.jpg
-│ │ ├─ mekelle.jpg
-│ │ ├─ mekelle-hotel.jpg
-│ │ ├─ mekelle-restaurant.jpg
-│ │ ├─ geraalta.jpg
-│ │ ├─ geraalta-hotel.avif
-│ │ ├─ yeha.jpg
-│ │ ├─ yeha-hotel.jpg
-│ │ ├─ yeha-restaurant.jpg
-│ │ ├─ adigrat.jpg
-│ │ ├─ adigrat-hotel.jpg
-│ │ ├─ adigrat-restaurant.jpg
-│ │ └─ trek.jpg
+│ └─ images/
+│ ├─ axum.jpg
+│ ├─ axum-hotel.jpg
+│ ├─ axum-restaurant.jpg
+│ ├─ shire.jpg
+│ ├─ shire-hotel.jpg
+│ ├─ shire-restaurant.jpg
+│ ├─ mekelle.jpg
+│ ├─ mekelle-hotel.jpg
+│ ├─ mekelle-restaurant.jpg
+│ ├─ geraalta.jpg
+│ ├─ geraalta-hotel.avif
+│ ├─ yeha.jpg
+│ ├─ yeha-hotel.jpg
+│ ├─ yeha-restaurant.jpg
+│ ├─ adigrat.jpg
+│ ├─ adigrat-hotel.jpg
+│ ├─ adigrat-restaurant.jpg
+│ └─ trek.jpg
 │
 └─ docs/
 ├─ wireframes/
@@ -116,64 +116,77 @@ explore-tigray/
 ├─ favorites.png
 └─ feedback.png
 
-```
 ---
 
 ## 🎨 Wireframes
 
 The following wireframes were created during the planning stage:
 
------------------------------------------------------
+---
+
 | Navbar: Explore Tigray | Destinations | Guides | Map |
-|                        | Favorites    | Feedback     |
------------------------------------------------------
+| | Favorites | Feedback |
 
------------------------------------------------------
-| HERO: Background Image of Tigray                  |
-| ------------------------------------------------- |
-|  Discover the Wonders of Tigray                  |
-|  Lead paragraph about rock churches, landscapes   |
-|  [ Search Box ]                                   |
------------------------------------------------------
+---
 
------------------------------------------------------
-| SECTION: Top Destinations                        |
-| ------------------------------------------------- |
-| [Filter Dropdown: All, Historical, Food, etc.]    |
-|                                                   |
-| [Card] [Card] [Card]                              |
-| [Card] [Card] [Card]                              |
------------------------------------------------------
+---
 
------------------------------------------------------
-| SECTION: Trusted Tour Companies                   |
-| ------------------------------------------------- |
+| HERO: Background Image of Tigray               |
+| ---------------------------------------------- |
+| Discover the Wonders of Tigray                 |
+| Lead paragraph about rock churches, landscapes |
+| [ Search Box ]                                 |
+
+---
+
+---
+
+| SECTION: Top Destinations                      |
+| ---------------------------------------------- |
+| [Filter Dropdown: All, Historical, Food, etc.] |
+|                                                |
+| [Card] [Card] [Card]                           |
+| [Card] [Card] [Card]                           |
+
+---
+
+---
+
+| SECTION: Trusted Tour Companies                             |
+| ----------------------------------------------------------- |
 | [Card - Brilliant Ethiopia] [Card - ETT] [Card - Inside ET] |
------------------------------------------------------
 
------------------------------------------------------
-| SECTION: Map of Tigray                            |
-| ------------------------------------------------- |
-| [Google Map Embedded with Markers]                |
------------------------------------------------------
+---
 
------------------------------------------------------
-| SECTION: My Favorites                             |
-| ------------------------------------------------- |
-| [Favorite Card] [Favorite Card] [Favorite Card]    |
------------------------------------------------------
+---
 
------------------------------------------------------
-| SECTION: Feedback Form                            |
-| ------------------------------------------------- |
-| Name: [________]   Email: [________]              |
-| Message: [___________________________]            |
-| [Send Feedback Button]                            |
------------------------------------------------------
+| SECTION: Map of Tigray             |
+| ---------------------------------- |
+| [Google Map Embedded with Markers] |
 
------------------------------------------------------
-| FOOTER: © 2025 Explore Tigray                     |
------------------------------------------------------
+---
+
+---
+
+| SECTION: My Favorites                           |
+| ----------------------------------------------- |
+| [Favorite Card] [Favorite Card] [Favorite Card] |
+
+---
+
+---
+
+| SECTION: Feedback Form                 |
+| -------------------------------------- |
+| Name: [________] Email: [________]     |
+| Message: [___________________________] |
+| [Send Feedback Button]                 |
+
+---
+
+---
+
+## | FOOTER: © 2025 Explore Tigray |
 
 ![Wireframe](assets/docs/wireframes/wireframe.png)
 ![Wireframe](assets/docs/wireframes/wireframe_updated.png)
@@ -182,14 +195,14 @@ The following wireframes were created during the planning stage:
 
 ## 🖼️ Screenshots (Final Design)
 
-| Feature            | Screenshot |
-| ------------------ | ---------- |
-| Hero Section       | ![Hero Screenshot](assets/docs/screenshots/hero.png) |
-| Destinations       | ![Destinations Screenshot](assets/docs/screenshots/destinations.png) |
-| Tour Companies     | ![Guides Screenshot](assets/docs/screenshots/guides.png) |
-| Map of Tigray      | ![Map Screenshot](assets/docs/screenshots/map.png) |
-| Favorites          | ![Favorites Screenshot](assets/docs/screenshots/favorites.png) |
-| Feedback Form      | ![Feedback Screenshot](assets/docs/screenshots/feedback.png) |
+| Feature        | Screenshot                                                           |
+| -------------- | -------------------------------------------------------------------- |
+| Hero Section   | ![Hero Screenshot](assets/docs/screenshots/hero.png)                 |
+| Destinations   | ![Destinations Screenshot](assets/docs/screenshots/destinations.png) |
+| Tour Companies | ![Guides Screenshot](assets/docs/screenshots/guides.png)             |
+| Map of Tigray  | ![Map Screenshot](assets/docs/screenshots/map.png)                   |
+| Favorites      | ![Favorites Screenshot](assets/docs/screenshots/favorites.png)       |
+| Feedback Form  | ![Feedback Screenshot](assets/docs/screenshots/feedback.png)         |
 
 ---
 
@@ -207,19 +220,24 @@ The following wireframes were created during the planning stage:
 ## ✅ Testing
 
 ### HTML Validation
+
 - Checked with **W3C Validator** – no major errors.
 
 ### CSS Validation
+
 - Passed **W3C Jigsaw Validator**.
 
 ### JavaScript
+
 - Checked with **ESLint** – no major issues.
 
 ### Responsiveness
+
 - Tested using Chrome DevTools on **mobile, tablet, and desktop breakpoints**.
 - Works well across devices.
 
 ### Performance
+
 - Tested with **Lighthouse**:
   - Performance: 95+
   - Accessibility: 100
@@ -227,19 +245,20 @@ The following wireframes were created during the planning stage:
   - SEO: 100
 
 ### Manual Testing
- Feature         | Test                                 | Result                         |
-| --------------- | ------------------------------------ | ----------------------------- |
-| Navbar          | Click links                          | ✅ Scrolls to correct section |
-| Search Bar      | Search "Axum"                        | ✅ Shows Axum only            |
-| Filter Dropdown | Select "Historical"                  | ✅ Shows Axum & Yeha          |
-| Filter Dropdown | Select “Food”                        | ✅ Shows restaurants          |
-| Favorites       | Add/Remove destination               | ✅ Stored in localStorage     |
-| No Results      | Search nonsense                      | ✅ “No destinations found.”   |
-| Map             | Updates markers after filtering      | ✅ Works                      |
-| Feedback Form   | Empty fields validation              | ✅ Error shown                |
-| Feedback Form   | Valid submission →confirmation       | ✅ Works                      |
----
 
+| Feature         | Test                            | Result                        |
+| --------------- | ------------------------------- | ----------------------------- |
+| Navbar          | Click links                     | ✅ Scrolls to correct section |
+| Search Bar      | Search "Axum"                   | ✅ Shows Axum only            |
+| Filter Dropdown | Select "Historical"             | ✅ Shows Axum & Yeha          |
+| Filter Dropdown | Select “Food”                   | ✅ Shows restaurants          |
+| Favorites       | Add/Remove destination          | ✅ Stored in localStorage     |
+| No Results      | Search nonsense                 | ✅ “No destinations found.”   |
+| Map             | Updates markers after filtering | ✅ Works                      |
+| Feedback Form   | Empty fields validation         | ✅ Error shown                |
+| Feedback Form   | Valid submission →confirmation  | ✅ Works                      |
+
+---
 
 ## 💡 UX Rationale
 
@@ -281,8 +300,6 @@ The following wireframes were created during the planning stage:
   Fix: corrected `infoWindow.open(map, marker)` → resolved.
 - **Inline Styles** – Found: chatbot used inline `style`.
   Fix: moved to CSS classes → resolved.
-- **Missing ARIA** – Found: no `aria-live` for chatbot.
-  Fix: added `role="log" aria-live="polite"` → resolved.
 
 ---
 
@@ -338,5 +355,7 @@ For assessment:
 - Integration with a **real backend** for saving feedback.
 
 ---
+
+```
 
 ```
