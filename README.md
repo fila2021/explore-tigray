@@ -164,6 +164,40 @@ A wireframe was created during the planning stage to define layout and navigatio
 
 ---
 
+## 🐛 Known Issue: GitHub Pages 404 Bug
+
+During deployment, the project encountered a **GitHub Pages 404 issue**, even though:
+
+- The repository structure is correct (`index.html` at root).
+- Pages settings are correctly configured (branch: `main`, folder: `/root`).
+- A `.nojekyll` file was added to disable Jekyll processing.
+- GitHub Actions build logs show a successful deployment (green check ✅).
+
+Despite this, the live URL:
+👉 [https://fila2021.github.io/explore-tigray/](https://fila2021.github.io/explore-tigray/)
+
+still returns a **404 error**.
+
+### Investigation
+
+- Cleared browser cache, tested incognito, and waited >10 minutes after deploy.
+- Confirmed correct repo branch and Pages configuration.
+- Attempted forced rebuild (switching to `/docs` then back to `/root`).
+- No issues in GitHub Actions build logs.
+
+### Conclusion
+
+This appears to be a **GitHub Pages bug**, not an issue with the project code or repo structure. The full site works correctly in local development (via `index.html`) and passes HTML, CSS, and JavaScript validation.
+
+### Workaround
+
+For assessment:
+
+- Please clone the repo locally and open `index.html` in a browser.
+- All features (search, filter, map, chatbot) work as expected.
+
+---
+
 ## 🔮 Future Enhancements
 
 - Add **favorites list** for logged-in users.
