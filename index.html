@@ -183,7 +183,8 @@
         id="feedbackForm"
         action="https://formdump.codeinstitute.net/"
         method="POST"
-        class="row g-3"
+        class="row g-3 needs-validation"
+        novalidate
       >
         <div class="col-md-6">
           <label for="name" class="form-label">Your Name</label>
@@ -193,9 +194,12 @@
             id="name"
             name="name"
             placeholder="Enter your name"
+            aria-label="Your Name"
             required
           />
+          <div class="invalid-feedback">Please enter your name.</div>
         </div>
+
         <div class="col-md-6">
           <label for="email" class="form-label">Your Email</label>
           <input
@@ -204,9 +208,14 @@
             id="email"
             name="email"
             placeholder="Enter your email"
+            aria-label="Your Email"
             required
           />
+          <div class="invalid-feedback">
+            Please provide a valid email address.
+          </div>
         </div>
+
         <div class="col-12">
           <label for="message" class="form-label">Message</label>
           <textarea
@@ -215,11 +224,20 @@
             name="message"
             rows="5"
             placeholder="Write your feedback..."
+            aria-label="Your Message"
             required
           ></textarea>
+          <div class="invalid-feedback">
+            Please enter your message before submitting.
+          </div>
         </div>
+
         <div class="col-12 text-center">
-          <button type="submit" class="btn btn-primary px-4">
+          <button
+            type="submit"
+            class="btn btn-primary px-4"
+            aria-label="Send Feedback"
+          >
             Send Feedback
           </button>
         </div>
