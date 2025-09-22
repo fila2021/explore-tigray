@@ -202,14 +202,6 @@ The following wireframes were created during the planning stage:
 - Tested using Chrome DevTools on **mobile, tablet, and desktop breakpoints**.
 - Works well across devices.
 
-### Performance
-
-- Tested with **Lighthouse**:
-  - Performance: 95+
-  - Accessibility: 100
-  - Best Practices: 100
-  - SEO: 100
-
 ### Manual Testing
 
 | Feature         | Test                            | Result                        |
