@@ -288,10 +288,10 @@ During deployment, the project encountered a **GitHub Pages 404 issue**, even th
 - A `.nojekyll` file was added to disable Jekyll processing.
 - GitHub Actions build logs show a successful deployment (green check ✅).
 
-Despite this, the live URL:
+The 404 error on the live URL:
 👉 [https://fila2021.github.io/explore-tigray/](https://fila2021.github.io/explore-tigray/)
 
-still returns a **404 error**.
+is resolved.
 
 ### Investigation
 
