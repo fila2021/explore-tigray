@@ -167,5 +167,5 @@ A wireframe was created during the planning stage to define layout and navigatio
 ## 🔮 Future Enhancements
 
 - Add **favorites list** for logged-in users.
-- Expand **chatbot intelligence** with AI API.
+- Expand **chatbot intelligence** with AI API(external API, example Chatgpt).
 - Add **new categories**: food, hotels, trekking routes.
