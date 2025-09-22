@@ -64,20 +64,16 @@ const searchInput = document.getElementById("searchInput");
 // Display destinations
 function displayDestinations(list) {
   cardContainer.innerHTML = "";
-  if (list.length === 0) {
-    cardContainer.innerHTML = `<p class="no-results">No destinations found. Try another search or filter.</p>`;
-    if (typeof updateMapMarkers === "function") updateMapMarkers([]);
-    return;
-  }
   list.forEach((dest) => {
     const card = document.createElement("div");
     card.classList.add("col-md-4");
     card.innerHTML = `
-      <div class="card">
-        <img src="${dest.image}" class="card-img-top" alt="Image of ${dest.name}">
-        <div class="card-body">
+      <div class="card h-100">
+        <img src="${dest.image}" class="card-img-top" alt="${dest.name}">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title">${dest.name}</h5>
           <p class="card-text">${dest.description}</p>
+          <a href="${dest.wiki}" target="_blank" class="btn btn-outline-primary mt-auto">Learn More</a>
         </div>
       </div>
     `;
